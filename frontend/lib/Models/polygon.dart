@@ -17,9 +17,9 @@ class MapZone {
 
   Polygon get polygon =>
       Polygon(
-          polygonId: PolygonId(polygonPin.location.toString()),
+          polygonId: PolygonId("${polygonPin.location}_polygon"),
           fillColor: polygonColor,
-          strokeColor: Colors.black,
+          points: points,
           strokeWidth: 2
       );
 }

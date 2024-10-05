@@ -10,8 +10,8 @@ List<MapState> mockData = [
     zones: [
       MapZone(
         points: [
-          const LatLng(37.523, -122.4194),
-          const LatLng(37.913, -122.4194),
+          const LatLng(36.523, -122.4194),
+          const LatLng(38.913, -122.4194),
           const LatLng(37.7749, -124.4194),
         ],
         polygonPin: const Pin(
@@ -19,9 +19,9 @@ List<MapState> mockData = [
           description: 'San Francisco, CA, USA',
           location: LatLng(37.7749, -122.4194),
           imageUrl:
-              'https://www.visitcalifornia.com/sites/default/files/styles/welcome_image/public/VCW_SanFrancisco_1.jpg',
+              '',
         ),
-        polygonColor: Colors.blue.withOpacity(0.5),
+        polygonColor: Colors.red.withOpacity(0.5),
       ),
     ],
     pins: [],
