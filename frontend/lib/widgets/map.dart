@@ -14,8 +14,8 @@ class MapScreen extends StatefulWidget {
 class MapScreenState extends State<MapScreen> {
   GoogleMapController? _controller;
 
-  double lat = 50.049683;
-  double lon = 19.944544;
+  double lat = mockData[0].center.latitude;
+  double lon = mockData[0].center.longitude;
 
   int mapStateIndex = 0;
 
