@@ -11,4 +11,14 @@ class Pin {
       required this.description,
       required this.location,
       required this.imageUrl});
+
+  Marker get marker => Marker(
+        markerId: MarkerId(location.toString()),
+        position: location,
+        infoWindow: InfoWindow(
+          title: title,
+          snippet: description,
+        ),
+        icon: BitmapDescriptor.defaultMarker,
+      );
 }
