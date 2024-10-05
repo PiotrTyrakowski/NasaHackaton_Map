@@ -18,18 +18,12 @@ List<MapState> mockData = [
           title: 'San Francisco',
           description: 'San Francisco, CA, USA',
           location: LatLng(37.7749, -122.4194),
-          imageUrl: 'https://www.visitcalifornia.com/sites/default/files/styles/welcome_image/public/VCW_SanFrancisco_1.jpg',
+          imageUrl:
+              'https://www.visitcalifornia.com/sites/default/files/styles/welcome_image/public/VCW_SanFrancisco_1.jpg',
         ),
         polygonColor: Colors.blue.withOpacity(0.5),
       ),
     ],
-    pins: [
-      const Pin(
-        title: 'San Francisco',
-        description: 'San Francisco, CA, USA',
-        location: LatLng(37.7749, -122.4194),
-        imageUrl: 'https://www.visitcalifornia.com/sites/default/files/styles/welcome_image/public/VCW_SanFrancisco_1.jpg',
-      ),
-    ],
+    pins: [],
   ),
 ];
