@@ -9,7 +9,7 @@ class MapZone {
   final Pin polygonPin;
   final Color polygonColor;
 
-  MapZone({required this.points,
+  const MapZone({required this.points,
     required this.polygonPin,
     required this.polygonColor});
 

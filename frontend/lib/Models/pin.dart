@@ -6,7 +6,7 @@ class Pin {
   final LatLng location;
   final String imageUrl;
 
-  Pin(
+  const Pin(
       {required this.title,
       required this.description,
       required this.location,

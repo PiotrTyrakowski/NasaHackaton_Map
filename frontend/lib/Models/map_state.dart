@@ -7,7 +7,7 @@ class MapState {
   final List<MapZone> zones;
   final List<Pin> pins;
 
-  MapState({required this.center, required this.zones, required this.pins});
+  const MapState({required this.center, required this.zones, required this.pins});
 
   List<Marker> get markers =>
       [...zones.map((zone) => zone.marker), ...pins.map((pin) => pin.marker)];
