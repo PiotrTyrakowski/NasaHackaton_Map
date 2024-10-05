@@ -33,9 +33,6 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: const Text('Environment Map'),
-        ),
         body: Stack(
           children: <Widget>[
             MapScreen(key: widget._key),

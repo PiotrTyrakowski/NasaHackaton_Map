@@ -17,7 +17,7 @@ class MapScreenState extends State<MapScreen> {
   double lat = 50.049683;
   double lon = 19.944544;
 
-  MapState state = mockData[0];
+  int mapStateIndex = 0;
 
   bool _isInBounds(LatLngBounds bounds, LatLng position) {
     return position.latitude >= bounds.southwest.latitude &&
@@ -26,20 +26,55 @@ class MapScreenState extends State<MapScreen> {
         position.longitude <= bounds.northeast.longitude;
   }
 
+  void _incrementMapIndex(){
+    mapStateIndex = (mapStateIndex + 1) % mockData.length;
+  }
+
+  void _moveCameraToNewPosition(double newLat, double newLon) {
+    setState(() {
+      lat = newLat;
+      lon = newLon;
+      if (_controller != null) {
+        _controller!
+            .animateCamera(CameraUpdate.newLatLngZoom(LatLng(lat, lon), 14));
+      }
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        appBar: AppBar(
+          title: const Text("Environment map"),
+          actions: [
+            TextButton(
+                onPressed: () {
+                  _incrementMapIndex();
+                  _moveCameraToNewPosition(mockData[mapStateIndex].center.latitude, mockData[mapStateIndex].center.longitude);
+                },
+                style: TextButton.styleFrom(
+                  backgroundColor: Colors.blue, // Blue background color
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 16.0), // Adjust padding
+                ),
+                child: const Text(
+                  'Tour',
+                  style: TextStyle(
+                      color: Colors.white), // Ensure the text is visible
+                )),
+          ],
+        ),
         body: GoogleMap(
-            onMapCreated: (GoogleMapController controller) {
-              _controller = controller;
-            },
-            initialCameraPosition: CameraPosition(
-              target: LatLng(lat, lon),
-              zoom: 14,
-            ),
-            mapType: MapType.satellite,
-            markers: Set<Marker>.from(state.markers),
-            polygons: Set<Polygon>.from(state.polygons),
+          onMapCreated: (GoogleMapController controller) {
+            _controller = controller;
+          },
+          initialCameraPosition: CameraPosition(
+            target: LatLng(lat, lon),
+            zoom: 14,
+          ),
+          mapType: MapType.satellite,
+          markers: Set<Marker>.from(mockData[mapStateIndex].markers),
+          polygons: Set<Polygon>.from(mockData[mapStateIndex].polygons),
         ));
   }
 }
