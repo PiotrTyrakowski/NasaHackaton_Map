@@ -67,6 +67,7 @@ flutter:
     - assets/icons/drough_icon.png
     - assets/icons/skull_icon.png
     - assets/icons/venice_icon.png
+    - assets/icons/miami_icon.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images
