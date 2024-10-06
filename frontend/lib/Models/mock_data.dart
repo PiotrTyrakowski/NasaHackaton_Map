@@ -48,6 +48,7 @@ final MapState realMapState2050 = MapState(
   ],
 );
 
+<<<<<<< Updated upstream
 final MapState realMapState2024 = MapState(
   zones: [],
   pins: [],
@@ -72,10 +73,53 @@ final MapState realMapState2200 = MapState(
   tours: [],
 );
 
+=======
+final MapState realMapState2100 = MapState(
+  zones: [
+    MapZone(
+      points: [
+        LatLng(29.4514, -94.6322),
+        LatLng(29.6783, -94.6708),
+        LatLng(29.7294, -94.3994),
+        LatLng(29.6917, -94.3425),
+        LatLng(29.7033, -94.3122),
+        LatLng(29.7517, -94.3153),
+        LatLng(29.8014, -94.1864),
+        LatLng(29.8911, -94.2131),
+        LatLng(29.9553, -94.1481),
+        LatLng(29.8953, -94.0675),
+        LatLng(29.8283, -94.9781),
+        LatLng(29.6792, -93.8342),
+        LatLng(29.6614, -94.0881)
+      ],
+      polygonPin: Pin(
+        title: 'Galveston',
+        description: 'Galveston, Texas',
+        location: LatLng(29.3013, -94.7977),
+        assetPath: 'assets/icons/flod_icon.png',
+      ),
+      polygonColor: Colors.blue.withOpacity(0.5),
+    )
+  ],
+  pins: [],
+  tours: [
+    Tour(lat: 29.3013, lon: -94.7977),
+  ],
+);
+
+
+
+// Final List of MapStates
+>>>>>>> Stashed changes
 final List<MapState> mapStates = [
   realMapState2024,
   realMapState2050,
   realMapState2100,
+<<<<<<< Updated upstream
   realMapState2150,
   realMapState2200,
+=======
+  mapState2150,
+  mapState2200,
+>>>>>>> Stashed changes
 ];
