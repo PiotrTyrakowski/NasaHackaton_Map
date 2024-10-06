@@ -233,10 +233,42 @@ final MapState mapState2200 = MapState(
   ],
 );
 
+final MapState realMapState2050 = MapState(
+  zones: [
+    MapZone(
+      points: [
+        LatLng(29.4514, -94.6322),
+        LatLng(29.5994, -94.6544),
+        LatLng(29.6728, -94.3975),
+        LatLng(29.4558, -94.5920),
+        LatLng(29.6286, -94.3544),
+        LatLng(29.6631, -94.2481),
+        LatLng(29.7319, -94.2994),
+        LatLng(29.7700, -94.1283),
+        LatLng(29.8636, -94.1439),
+        LatLng(29.8981, -94.0714),
+        LatLng(29.6792, -93.8342),
+        LatLng(29.6614, -94.0881)
+      ],
+      polygonPin: Pin(
+        title: 'Galveston',
+        description: 'Galveston, Texas',
+        location: LatLng(29.3013, -94.7977),
+        assetPath: 'assets/icons/flod_icon.png',
+      ),
+      polygonColor: Colors.blue.withOpacity(0.5),
+    )
+  ],
+  pins: [],
+  tours: [
+    Tour(lat: 29.3013, lon: -94.7977),
+  ],
+);
+
 // Final List of MapStates
 final List<MapState> mapStates = [
   mapState2024,
-  mapState2050,
+  realMapState2050,
   mapState2100,
   mapState2150,
   mapState2200,
