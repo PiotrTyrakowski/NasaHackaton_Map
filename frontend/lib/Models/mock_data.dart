@@ -25,10 +25,10 @@ final MapState realMapState2050 = MapState(
         title: 'Flooded Region: Loss of Homes & Properties',
         description:
             'Severe flooding in Galveston, Texas, due to sea-level rise. Many'
-                ' areas are submerged, with communities experiencing widespread '
-                'property damage and loss of livelihoods.',
+            ' areas are submerged, with communities experiencing widespread '
+            'property damage and loss of livelihoods.',
         location: LatLng(29.7319, -94.2994),
-        assetPath: 'assets/icons/flood_icon.png',
+        assetPath: 'assets/icons/flod_icon.png',
       ),
       polygonColor: Colors.blue.withOpacity(0.5),
     ),
@@ -40,9 +40,13 @@ final MapState realMapState2050 = MapState(
       lon: -94.2994,
       description:
           "This tour highlights areas in Galveston severely impacted by a 0.5-meter "
-              "rise in sea levels. Residents in these zones have lost homes, businesses,"
-              " and property to encroaching waters. The devastation has displaced entire "
-              "communities and significantly altered the region's landscape.",
+          "rise in sea levels.\n Residents in these zones have lost homes, businesses,"
+          " and property to encroaching waters.\n The devastation has displaced entire "
+          "communities and significantly altered the region's landscape.\n"
+          "Helpful materials:\n"
+          "1. https://science.nasa.gov/climate-change/\n"
+          "2. https://www.climate.gov/news-features/climate-qa/can-we-slow-or-even-reverse-global-warming\n"
+          "3. https://news.un.org/en/story/2024/09/1154881",
     ),
   ],
 );
@@ -70,10 +74,13 @@ final MapState realMapState2100 = MapState(
         LatLng(29.6792, -93.8342),
         LatLng(29.6614, -94.0881)
       ],
-      polygonPin: Pin(
-        title: 'Galveston',
-        description: 'Galveston, Texas',
-        location: LatLng(29.3013, -94.7977),
+      polygonPin: const Pin(
+        title: 'Flooded Region: Loss of Homes & Properties',
+        description:
+        'Severe flooding in Galveston, Texas, due to sea-level rise. Many'
+            ' areas are submerged, with communities experiencing widespread '
+            'property damage and loss of livelihoods.',
+        location: LatLng(29.7319, -94.2994),
         assetPath: 'assets/icons/flod_icon.png',
       ),
       polygonColor: Colors.blue.withOpacity(0.5),
@@ -85,14 +92,17 @@ final MapState realMapState2100 = MapState(
       lat: 29.7319,
       lon: -94.2994,
       description:
-      "This tour highlights areas in Galveston severely impacted by a 0.5-meter "
-          "rise in sea levels. Residents in these zones have lost homes, businesses,"
-          " and property to encroaching waters. The devastation has displaced entire "
-          "communities and significantly altered the region's landscape.",
+          "This tour highlights areas in Galveston severely impacted by a 1.2-meter "
+          "rise in sea levels.\n Residents in these zones have lost homes, businesses,"
+          " and property to encroaching waters.\n The devastation has displaced entire "
+          "communities and significantly altered the region's landscape.\n"
+          "Helpful materials:\n"
+          "1. https://science.nasa.gov/climate-change/\n"
+          "2. https://www.climate.gov/news-features/climate-qa/can-we-slow-or-even-reverse-global-warming\n"
+          "3. https://news.un.org/en/story/2024/09/1154881",
     ),
   ],
 );
-
 
 final MapState realMapState2150 = MapState(
   zones: [
@@ -107,10 +117,13 @@ final MapState realMapState2150 = MapState(
         LatLng(29.6792, -93.8342),
         LatLng(29.6614, -94.0881)
       ],
-      polygonPin: Pin(
-        title: 'Galveston',
-        description: 'Galveston, Texas',
-        location: LatLng(29.3013, -94.7977),
+      polygonPin: const Pin(
+        title: 'Flooded Region: Loss of Homes & Properties',
+        description:
+            'Severe flooding in Galveston, Texas, due to sea-level rise. Many'
+            ' areas are submerged, with communities experiencing widespread '
+            'property damage and loss of livelihoods.',
+        location: LatLng(29.7319, -94.2994),
         assetPath: 'assets/icons/flod_icon.png',
       ),
       polygonColor: Colors.blue.withOpacity(0.5),
@@ -118,7 +131,19 @@ final MapState realMapState2150 = MapState(
   ],
   pins: [],
   tours: [
-        Tour(lat: 29.3013, lon: -94.7977),
+    Tour(
+      lat: 29.7319,
+      lon: -94.2994,
+      description:
+          "This tour highlights areas in Galveston severely impacted by a 1.2-meter "
+          "rise in sea levels.\n Residents in these zones have lost homes, businesses,"
+          " and property to encroaching waters.\n The devastation has displaced entire "
+          "communities and significantly altered the region's landscape.\n"
+          "Helpful materials:\n"
+          "1. https://science.nasa.gov/climate-change/\n"
+          "2. https://www.climate.gov/news-features/climate-qa/can-we-slow-or-even-reverse-global-warming\n"
+          "3. https://news.un.org/en/story/2024/09/1154881",
+    ),
   ],
 );
 
