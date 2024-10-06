@@ -30,7 +30,7 @@ final MapState realMapState2050 = MapState(
               1. https://science.nasa.gov/climate-change/\n
               2. https://www.climate.gov/news-features/climate-qa/can-we-slow-or-even-reverse-global-warming\n
               3. https://news.un.org/en/story/2024/09/1154881''',
-        location: LatLng(29.7319, -94.2994),
+        location: LatLng(29.659350, -94.208531),
         assetPath: 'assets/icons/flod_icon.png',
       ),
       polygonColor: Colors.blue.withOpacity(0.5),

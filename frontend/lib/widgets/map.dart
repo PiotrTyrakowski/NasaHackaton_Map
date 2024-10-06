@@ -130,6 +130,7 @@ class MapScreenState extends State<MapScreen> {
               style: TextStyle(color: Colors.white),
             ),
           ),
+          SizedBox(height: 16.0, width: 8,),
           TextButton(
             onPressed: isTourActive ? _stopTour : _incrementTourAndCords,
             style: TextButton.styleFrom(
