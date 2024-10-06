@@ -41,9 +41,13 @@ final MapState realMapState2050 = MapState(
       lon: -94.2994,
       description:
           "This tour highlights areas in Galveston severely impacted by a 0.5-meter "
-              "rise in sea levels. Residents in these zones have lost homes, businesses,"
-              " and property to encroaching waters. The devastation has displaced entire "
-              "communities and significantly altered the region's landscape.",
+              "rise in sea levels.\n Residents in these zones have lost homes, businesses,"
+              " and property to encroaching waters.\n The devastation has displaced entire "
+              "communities and significantly altered the region's landscape.\n"
+              "Helpful materials:\n"
+              "1. https://science.nasa.gov/climate-change/\n"
+              "2. https://www.climate.gov/news-features/climate-qa/can-we-slow-or-even-reverse-global-warming\n"
+              "3. https://news.un.org/en/story/2024/09/1154881",
     ),
   ],
 );
@@ -86,10 +90,14 @@ final MapState realMapState2100 = MapState(
       lat: 29.7319,
       lon: -94.2994,
       description:
-      "This tour highlights areas in Galveston severely impacted by a 0.5-meter "
-          "rise in sea levels. Residents in these zones have lost homes, businesses,"
-          " and property to encroaching waters. The devastation has displaced entire "
-          "communities and significantly altered the region's landscape.",
+      "This tour highlights areas in Galveston severely impacted by a 1.2-meter "
+          "rise in sea levels.\n Residents in these zones have lost homes, businesses,"
+          " and property to encroaching waters.\n The devastation has displaced entire "
+          "communities and significantly altered the region's landscape.\n"
+          "Helpful materials:\n"
+          "1. https://science.nasa.gov/climate-change/\n"
+          "2. https://www.climate.gov/news-features/climate-qa/can-we-slow-or-even-reverse-global-warming\n"
+          "3. https://news.un.org/en/story/2024/09/1154881",
     ),
   ],
 );
