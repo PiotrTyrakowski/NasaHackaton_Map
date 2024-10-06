@@ -31,8 +31,8 @@ const Pin pin3 = Pin(
 final MapZone zone1 = MapZone(
   points: [
     const LatLng(37.7749, -122.4194),
-    const LatLng(37.7849, -122.4294),
-    const LatLng(37.7949, -122.4394),
+    const LatLng(38.7849, -120.4294),
+    const LatLng(40.7949, -125.4394),
   ],
   polygonPin: pin1,
   polygonColor: Colors.red.withOpacity(0.5),
@@ -41,8 +41,8 @@ final MapZone zone1 = MapZone(
 final MapZone zone2 = MapZone(
   points: [
     const LatLng(34.0522, -118.2437),
-    const LatLng(34.0622, -118.2537),
-    const LatLng(34.0722, -118.2637),
+    const LatLng(36.0622, -117.2537),
+    const LatLng(31.0722, -112.2637),
   ],
   polygonPin: pin2,
   polygonColor: Colors.blue.withOpacity(0.5),
@@ -51,8 +51,8 @@ final MapZone zone2 = MapZone(
 final MapZone zone3 = MapZone(
   points: [
     const LatLng(40.7128, -74.0060),
-    const LatLng(40.7228, -74.0160),
-    const LatLng(40.7328, -74.0260),
+    const LatLng(39.7228, -74.0160),
+    const LatLng(40.7328, -75.0260),
   ],
   polygonPin: pin3,
   polygonColor: Colors.green.withOpacity(0.5),
