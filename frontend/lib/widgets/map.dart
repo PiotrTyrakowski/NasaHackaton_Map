@@ -24,6 +24,8 @@ class MapScreenState extends State<MapScreen> {
 
   int mapStateIndex = 0;
   int tourIndex = 0;
+  bool isTourActive = false;
+  String currentDescription = '';
 
   bool _isInBounds(LatLngBounds bounds, LatLng position) {
     return position.latitude >= bounds.southwest.latitude &&
@@ -36,17 +38,29 @@ class MapScreenState extends State<MapScreen> {
     setState(() {
       mapStateIndex = (mapStateIndex + 1) % mapStates.length;
       tourIndex = 0;
+      isTourActive = false;
+      currentDescription = '';
     });
   }
 
   void _incrementTourAndCords() {
     setState(() {
       if (mapStates[mapStateIndex].tours.isEmpty) return;
+      isTourActive = true;
       tourIndex = (tourIndex + 1) % mapStates[mapStateIndex].tours.length;
       lon = mapStates[mapStateIndex].tours[tourIndex].lon;
       lat = mapStates[mapStateIndex].tours[tourIndex].lat;
+      currentDescription = mapStates[mapStateIndex].tours[tourIndex].description;
     });
     _updateCameraPosition();
+  }
+
+  void _stopTour() {
+    setState(() {
+      isTourActive = false;
+      currentDescription = '';
+      tourIndex = 0;
+    });
   }
 
   void _updateCameraPosition() {
@@ -68,6 +82,8 @@ class MapScreenState extends State<MapScreen> {
         mapStateIndex = 3;
       }
       tourIndex = 0;
+      isTourActive = false;
+      currentDescription = '';
     });
   }
 
@@ -78,51 +94,73 @@ class MapScreenState extends State<MapScreen> {
         title: const Text("Environment map"),
         actions: [
           TextButton(
-              onPressed: _incrementTourAndCords,
-              style: TextButton.styleFrom(
-                backgroundColor: Colors.blue,
-                padding: const EdgeInsets.symmetric(horizontal: 16.0),
-              ),
-              child: const Text(
-                'Tour',
-                style: TextStyle(color: Colors.white),
-              )),
+            onPressed: isTourActive ? _incrementTourAndCords : null,
+            style: TextButton.styleFrom(
+              backgroundColor: isTourActive ? Colors.blue : Colors.grey,
+              padding: const EdgeInsets.symmetric(horizontal: 16.0),
+            ),
+            child: Text(
+              'Next',
+              style: TextStyle(color: Colors.white),
+            ),
+          ),
+          TextButton(
+            onPressed: isTourActive ? _stopTour : _incrementTourAndCords,
+            style: TextButton.styleFrom(
+              backgroundColor: Colors.blue,
+              padding: const EdgeInsets.symmetric(horizontal: 16.0),
+            ),
+            child: Text(
+              isTourActive ? 'Stop Tour' : 'Start Tour',
+              style: TextStyle(color: Colors.white),
+            ),
+          ),
         ],
       ),
-      body: Row(
+      body: Stack(
         children: [
-          Container(
-            width: 100, // Set a fixed width for the ThermometerSlider
-            child: ThermometerSlider(
-              onYearChanged: _onYearChanged,
-              initialYear: 2024 + mapStateIndex.toDouble() * 50,
-            ),
+          FutureBuilder<mapObjects>(
+            future: Future.value(mapStates[mapStateIndex].getMapObjects(context)),
+            builder: (context, snapshot) {
+              if (snapshot.connectionState == ConnectionState.waiting) {
+                return const Center(child: CircularProgressIndicator());
+              } else if (snapshot.hasError) {
+                return Center(child: Text('Error: ${snapshot.error}'));
+              } else {
+                return GoogleMap(
+                  onMapCreated: (GoogleMapController controller) {
+                    _controller = controller;
+                  },
+                  initialCameraPosition: CameraPosition(
+                    target: LatLng(lat, lon),
+                    zoom: 14,
+                  ),
+                  mapType: MapType.satellite,
+                  markers: snapshot.data?.markers ?? {},
+                  polygons: snapshot.data?.polygons ?? {},
+                );
+              }
+            },
           ),
-          Expanded(
-            child: FutureBuilder<mapObjects>(
-              future: Future.value(mapStates[mapStateIndex].getMapObjects(context)),
-              builder: (context, snapshot) {
-                if (snapshot.connectionState == ConnectionState.waiting) {
-                  return const Center(child: CircularProgressIndicator());
-                } else if (snapshot.hasError) {
-                  return Center(child: Text('Error: ${snapshot.error}'));
-                } else {
-                  return GoogleMap(
-                    onMapCreated: (GoogleMapController controller) {
-                      _controller = controller;
-                    },
-                    initialCameraPosition: CameraPosition(
-                      target: LatLng(lat, lon),
-                      zoom: 14,
-                    ),
-                    mapType: MapType.satellite,
-                    markers: snapshot.data?.markers ?? {},
-                    polygons: snapshot.data?.polygons ?? {},
-                  );
-                }
-              },
-            ),
+          ThermometerSlider(
+            onYearChanged: _onYearChanged,
+            initialYear: 2024 + mapStateIndex.toDouble() * 50,
           ),
+          if (isTourActive)
+            Positioned(
+              left: 0,
+              right: 0,
+              bottom: 0,
+              child: Container(
+                padding: EdgeInsets.all(16),
+                color: Colors.black.withOpacity(0.7),
+                child: Text(
+                  currentDescription,
+                  style: TextStyle(color: Colors.white, fontSize: 16),
+                  textAlign: TextAlign.center,
+                ),
+              ),
+            ),
         ],
       ),
     );
