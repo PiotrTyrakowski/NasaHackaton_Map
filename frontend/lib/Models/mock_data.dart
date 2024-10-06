@@ -29,7 +29,7 @@ final MapState realMapState2050 = MapState(
             ' areas are submerged, with communities experiencing widespread '
             'property damage and loss of livelihoods.',
         location: LatLng(29.7319, -94.2994),
-        assetPath: 'assets/icons/flood_icon.png',
+        assetPath: 'assets/icons/flod_icon.png',
       ),
       polygonColor: Colors.blue.withOpacity(0.5),
     ),
@@ -75,10 +75,13 @@ final MapState realMapState2100 = MapState(
         LatLng(29.6792, -93.8342),
         LatLng(29.6614, -94.0881)
       ],
-      polygonPin: Pin(
-        title: 'Galveston',
-        description: 'Galveston, Texas',
-        location: LatLng(29.3013, -94.7977),
+      polygonPin: const Pin(
+        title: 'Flooded Region: Loss of Homes & Properties',
+        description:
+        'Severe flooding in Galveston, Texas, due to sea-level rise. Many'
+            ' areas are submerged, with communities experiencing widespread '
+            'property damage and loss of livelihoods.',
+        location: LatLng(29.7319, -94.2994),
         assetPath: 'assets/icons/flod_icon.png',
       ),
       polygonColor: Colors.blue.withOpacity(0.5),
@@ -122,7 +125,7 @@ final MapState realMapState2150 = MapState(
             ' areas are submerged, with communities experiencing widespread '
             'property damage and loss of livelihoods.',
         location: LatLng(29.7319, -94.2994),
-        assetPath: 'assets/icons/flood_icon.png',
+        assetPath: 'assets/icons/flod_icon.png',
       ),
       polygonColor: Colors.blue.withOpacity(0.5),
     )
