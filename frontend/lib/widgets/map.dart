@@ -81,17 +81,25 @@ class MapScreenState extends State<MapScreen> {
           } else if (snapshot.hasError) {
             return Center(child: Text('Error: ${snapshot.error}'));
           } else {
-            return GoogleMap(
-              onMapCreated: (GoogleMapController controller) {
-                _controller = controller;
-              },
-              initialCameraPosition: CameraPosition(
-                target: LatLng(lat, lon),
-                zoom: 14,
-              ),
-              mapType: MapType.satellite,
-              markers: snapshot.data?.markers ?? {},
-              polygons: snapshot.data?.polygons ?? {},
+            return Row(
+              children: [
+                Spacer(), // Pushes the map to the right
+                SizedBox(
+                  width: MediaQuery.of(context).size.width * 0.95, // Set width to 80% of screen width
+                  child: GoogleMap(
+                    onMapCreated: (GoogleMapController controller) {
+                      _controller = controller;
+                    },
+                    initialCameraPosition: CameraPosition(
+                      target: LatLng(lat, lon),
+                      zoom: 14,
+                    ),
+                    mapType: MapType.satellite,
+                    markers: snapshot.data?.markers ?? {},
+                    polygons: snapshot.data?.polygons ?? {},
+                  ),
+                ),
+              ],
             );
           }
         },
