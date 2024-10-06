@@ -9,12 +9,12 @@ class PinWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Align(
-      alignment: Alignment.centerRight, // Align the widget to the right
+      alignment: Alignment.centerRight,
       child: Container(
-        width: 300, // Specify a smaller width
+        width: 700,
         padding: const EdgeInsets.all(16),
         decoration: const BoxDecoration(
-          color: Colors.white, // Add a background color for better visibility
+          color: Colors.white,
           boxShadow: [
             BoxShadow(
               color: Colors.black12,
@@ -30,14 +30,14 @@ class PinWidget extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Expanded( // Ensure title doesn't overflow
+                Expanded(
                   child: Text(
                     pin.title,
                     style: const TextStyle(
                       fontSize: 24,
                       fontWeight: FontWeight.bold,
                     ),
-                    overflow: TextOverflow.ellipsis, // Handle long titles
+                    overflow: TextOverflow.ellipsis,
                   ),
                 ),
                 IconButton(
