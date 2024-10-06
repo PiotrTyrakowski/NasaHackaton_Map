@@ -1,16 +1,17 @@
 import 'package:frontend/Models/pin.dart';
 import 'package:frontend/Models/polygon.dart';
+import 'package:frontend/Models/tour.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 class MapState {
-  final LatLng center;
   final List<MapZone> zones;
   final List<Pin> pins;
+  final List<Tour> tours;
 
   const MapState({
-    required this.center,
     required this.zones,
     required this.pins,
+    required this.tours,
   });
 
   Future<Set<Marker>> get markers async {

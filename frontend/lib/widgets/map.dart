@@ -13,13 +13,12 @@ class MapScreen extends StatefulWidget {
 
 class MapScreenState extends State<MapScreen> {
   GoogleMapController? _controller;
-
-  double lat = mockData[0].center.latitude;
-  double lon = mockData[0].center.longitude;
-
-  MapState state = mockData[0];
+  
+  double lat = (mapStates.isNotEmpty && mapStates[0].tours.isNotEmpty) ? mapStates[0].tours[0].lat : 50.5822;
+  double lon = (mapStates.isNotEmpty && mapStates[0].tours.isNotEmpty) ? mapStates[0].tours[0].lon : 22.0535;
 
   int mapStateIndex = 0;
+  int tourIndex = 0;
 
   bool _isInBounds(LatLngBounds bounds, LatLng position) {
     return position.latitude >= bounds.southwest.latitude &&
@@ -29,13 +28,18 @@ class MapScreenState extends State<MapScreen> {
   }
 
   void _incrementMapIndex() {
-    mapStateIndex = (mapStateIndex + 1) % mockData.length;
+    mapStateIndex = (mapStateIndex + 1) % mapStates.length;
+    tourIndex = 0;
   }
 
-  void _moveCameraToNewPosition(double newLat, double newLon) {
+  void _incrementTourAndCords(){
+    tourIndex = (tourIndex + 1) % mapStates[mapStateIndex].tours.length;
+    lon = mapStates[mapStateIndex].tours[tourIndex].lon;
+    lat = mapStates[mapStateIndex].tours[tourIndex].lat;
+  }
+
+  void _updateCameraPosition() {
     setState(() {
-      lat = newLat;
-      lon = newLon;
       if (_controller != null) {
         _controller!
             .animateCamera(CameraUpdate.newLatLngZoom(LatLng(lat, lon), 14));
@@ -51,10 +55,8 @@ class MapScreenState extends State<MapScreen> {
         actions: [
           TextButton(
               onPressed: () {
-                _incrementMapIndex();
-                _moveCameraToNewPosition(
-                    mockData[mapStateIndex].center.latitude,
-                    mockData[mapStateIndex].center.longitude);
+                _incrementTourAndCords();
+                _updateCameraPosition();
               },
               style: TextButton.styleFrom(
                 backgroundColor: Colors.blue, // Blue background color
@@ -69,7 +71,7 @@ class MapScreenState extends State<MapScreen> {
         ],
       ),
       body: FutureBuilder<Set<Marker>>(
-        future: Future.value(state.markers),
+        future: Future.value(mapStates[mapStateIndex].markers),
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
             return const Center(child: CircularProgressIndicator());
@@ -86,7 +88,7 @@ class MapScreenState extends State<MapScreen> {
               ),
               mapType: MapType.satellite,
               markers: snapshot.data ?? {},
-              polygons: Set<Polygon>.from(state.polygons),
+              polygons: Set<Polygon>.from(mapStates[mapStateIndex].polygons),
             );
           }
         },
