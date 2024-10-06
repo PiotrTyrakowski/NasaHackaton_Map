@@ -7,15 +7,16 @@ import 'package:frontend/Models/tour.dart';
 
 final MapState realMapState2050 = MapState(
   zones: [
-    MapZone( //desertification zone
+    MapZone(
+      //desertification zone
       points: [
         LatLng(30.0444, 31.2357),
-        LatLng(21.0000, 18.0000),  
-        LatLng(15.4542, 18.7322),  
+        LatLng(21.0000, 18.0000),
+        LatLng(15.4542, 18.7322),
         LatLng(13.0000, 24.0000),
-        LatLng(12.8628, 30.2176),  
-        LatLng(15.6000, 36.4000), 
-        LatLng(22.0000, 36.0000)   
+        LatLng(12.8628, 30.2176),
+        LatLng(15.6000, 36.4000),
+        LatLng(22.0000, 36.0000)
       ],
       polygonPin: const Pin(
         title: 'Desertified Region: Loss of Homes & Properties',
@@ -70,7 +71,10 @@ final MapState realMapState2050 = MapState(
       polygonPin: const Pin(
         title: 'Heatwave Havoc: Threat to Lives and Livelihoods',
         description:
-            '''Heatwaves can have widespread, cascading effects. They can lead to droughts, wildfires, poor air quality, water and food shortages, and power outages, devastating communities worldwide. In 2023, wildfires in Canada burned 7.8 million hectares of land, releasing 3 billion tonnes of carbon dioxide, which worsened air pollution as far as Europe and China. This carbon release can contribute to future heatwaves, creating a dangerous feedback loop.F Helpful materials:\n
+            '''Heatwaves can have widespread, cascading effects. They can lead to droughts, wildfires, poor air quality, water and food shortages,
+             and power outages, devastating communities worldwide. In 2023, wildfires in Canada burned 7.8 million hectares of land,
+              releasing 3 billion tonnes of carbon dioxide, which worsened air pollution as far as Europe and China. 
+              This carbon release can contribute to future heatwaves, creating a dangerous feedback loop.F Helpful materials:\n
               1. https://science.nasa.gov/climate-change/\n
               2. https://www.climate.gov/news-features/climate-qa/can-we-slow-or-even-reverse-global-warming\n
               3. https://news.un.org/en/story/2024/09/1154881''',
@@ -91,7 +95,10 @@ final MapState realMapState2050 = MapState(
       polygonPin: const Pin(
         title: 'title',
         description:
-            '''Heatwaves can have widespread, cascading effects. They can lead to droughts, wildfires, poor air quality, water and food shortages, and power outages, devastating communities worldwide. In 2023, wildfires in Canada burned 7.8 million hectares of land, releasing 3 billion tonnes of carbon dioxide, which worsened air pollution as far as Europe and China. This carbon release can contribute to future heatwaves, creating a dangerous feedback loop.. Helpful materials:\n
+            '''Heatwaves can have widespread, cascading effects. They can lead to droughts, wildfires, poor air quality,
+             water and food shortages, and power outages, devastating communities worldwide. In 2023, wildfires in Canada burned 7.8 million hectares of land,
+              releasing 3 billion tonnes of carbon dioxide, which worsened air pollution as far as Europe and China. 
+              This carbon release can contribute to future heatwaves, creating a dangerous feedback loop.. Helpful materials:\n
               1. https://science.nasa.gov/climate-change/\n
               2. https://www.climate.gov/news-features/climate-qa/can-we-slow-or-even-reverse-global-warming\n
               3. https://news.un.org/en/story/2024/09/1154881''',
@@ -124,7 +131,9 @@ Urgent action is required to mitigate the impacts of climate change and protect 
       lat: 36.324738,
       lon: 27.959426,
       description:
-          '''opHeatwaves are becoming more frequent and severe due to human-induced climate change. A staggering 93% of 152 extreme-weather studies conducted over the past two decades concluded that climate change made extreme heat events more likely or more intense. For instance, the June 2024 heatwave across the US, Mexico, and Central America was made 35 times more likely and 1.4°C warmer due to climate change.is''',
+          '''opHeatwaves are becoming more frequent and severe due to human-induced climate change.
+           A staggering 93% of 152 extreme-weather studies conducted over the past two decades concluded that climate change made extreme heat events more likely or more intense. 
+           For instance, the June 2024 heatwave across the US, Mexico, and Central America was made 35 times more likely and 1.4°C warmer due to climate change.is''',
     ),
   ],
 );
@@ -137,20 +146,24 @@ final MapState realMapState2024 = MapState(
 
 final MapState realMapState2100 = MapState(
   zones: [
-    MapZone( //desertification zone
+    MapZone(
+      //desertification zone
       points: [
         LatLng(30.0444, 31.2357),
-        LatLng(21.0000, 18.0000),  
-        LatLng(15.4542, 18.7322),  
+        LatLng(21.0000, 18.0000),
+        LatLng(15.4542, 18.7322),
         LatLng(13.0000, 24.0000),
-        LatLng(12.8628, 30.2176),  
-        LatLng(15.6000, 36.4000), 
-        LatLng(22.0000, 36.0000)   
+        LatLng(12.8628, 30.2176),
+        LatLng(15.6000, 36.4000),
+        LatLng(22.0000, 36.0000)
       ],
       polygonPin: const Pin(
         title: 'Desertified Region: Loss of Homes & Properties',
         description:
-            '''Severe desertification in the Sahel region of Africa, driven by prolonged drought and climate change. Large expanses of formerly arable land are turning into desert, causing widespread crop failure, water scarcity, and the displacement of communities. Livelihoods are being devastated as pastoral and farming activities become unsustainable, leading to food insecurity and economic hardship. Helpful materials:\n
+            '''Severe desertification in the Sahel region of Africa, driven by prolonged drought and climate change. 
+            Large expanses of formerly arable land are turning into desert, causing widespread crop failure, water scarcity,
+             and the displacement of communities. Livelihoods are being devastated as pastoral and farming activities become unsustainable,
+              leading to food insecurity and economic hardship. Helpful materials:\n
               1. https://science.nasa.gov/climate-change/\n
               2. https://www.climate.gov/news-features/climate-qa/can-we-slow-or-even-reverse-global-warming\n
               3. https://news.un.org/en/story/2024/09/1154881
@@ -222,7 +235,10 @@ final MapState realMapState2100 = MapState(
       polygonPin: const Pin(
         title: 'title',
         description:
-            '''Heatwaves can have widespread, cascading effects. They can lead to droughts, wildfires, poor air quality, water and food shortages, and power outages, devastating communities worldwide. In 2023, wildfires in Canada burned 7.8 million hectares of land, releasing 3 billion tonnes of carbon dioxide, which worsened air pollution as far as Europe and China. This carbon release can contribute to future heatwaves, creating a dangerous feedback loop.. Helpful materials:\n
+            '''Heatwaves can have widespread, cascading effects. They can lead to droughts, wildfires, poor air quality, water and food shortages,
+             and power outages, devastating communities worldwide. In 2023, wildfires in Canada burned 7.8 million hectares of land,
+              releasing 3 billion tonnes of carbon dioxide, which worsened air pollution as far as Europe and China. 
+              This carbon release can contribute to future heatwaves, creating a dangerous feedback loop.. Helpful materials:\n
               1. https://science.nasa.gov/climate-change/\n
               2. https://www.climate.gov/news-features/climate-qa/can-we-slow-or-even-reverse-global-warming\n
               3. https://news.un.org/en/story/2024/09/1154881''',
@@ -268,28 +284,31 @@ final MapState realMapState2100 = MapState(
     Tour(
       lat: 36.324738,
       lon: 27.959426,
-      description:
-          '''opis''',
+      description: '''opis''',
     ),
   ],
 );
 
 final MapState realMapState2150 = MapState(
   zones: [
-    MapZone( //desertification zone
+    MapZone(
+      //desertification zone
       points: [
         LatLng(30.0444, 31.2357),
-        LatLng(21.0000, 18.0000),  
-        LatLng(15.4542, 18.7322),  
+        LatLng(21.0000, 18.0000),
+        LatLng(15.4542, 18.7322),
         LatLng(13.0000, 24.0000),
-        LatLng(12.8628, 30.2176),  
-        LatLng(15.6000, 36.4000), 
-        LatLng(22.0000, 36.0000)   
+        LatLng(12.8628, 30.2176),
+        LatLng(15.6000, 36.4000),
+        LatLng(22.0000, 36.0000)
       ],
       polygonPin: const Pin(
         title: 'Desertified Region: Loss of Homes & Properties',
         description:
-            '''Severe desertification in the Sahel region of Africa, driven by prolonged drought and climate change. Large expanses of formerly arable land are turning into desert, causing widespread crop failure, water scarcity, and the displacement of communities. Livelihoods are being devastated as pastoral and farming activities become unsustainable, leading to food insecurity and economic hardship. Helpful materials:\n
+            '''Severe desertification in the Sahel region of Africa, driven by prolonged drought and climate change. 
+            Large expanses of formerly arable land are turning into desert, causing widespread crop failure, water scarcity, 
+            and the displacement of communities. Livelihoods are being devastated as pastoral and farming activities become unsustainable, 
+            leading to food insecurity and economic hardship. Helpful materials:\n
               1. https://science.nasa.gov/climate-change/\n
               2. https://www.climate.gov/news-features/climate-qa/can-we-slow-or-even-reverse-global-warming\n
               3. https://news.un.org/en/story/2024/09/1154881
@@ -333,7 +352,10 @@ final MapState realMapState2150 = MapState(
       polygonPin: const Pin(
         title: 'title',
         description:
-            '''Heatwaves can have widespread, cascading effects. They can lead to droughts, wildfires, poor air quality, water and food shortages, and power outages, devastating communities worldwide. In 2023, wildfires in Canada burned 7.8 million hectares of land, releasing 3 billion tonnes of carbon dioxide, which worsened air pollution as far as Europe and China. This carbon release can contribute to future heatwaves, creating a dangerous feedback loop.. Helpful materials:\n
+            '''Heatwaves can have widespread, cascading effects. They can lead to droughts, wildfires, poor air quality, water and food shortages,
+             and power outages, devastating communities worldwide. In 2023, wildfires in Canada burned 7.8 million hectares of land, 
+             releasing 3 billion tonnes of carbon dioxide, which worsened air pollution as far as Europe and China. This carbon release can contribute to future heatwaves,
+              creating a dangerous feedback loop.. Helpful materials:\n
               1. https://science.nasa.gov/climate-change/\n
               2. https://www.climate.gov/news-features/climate-qa/can-we-slow-or-even-reverse-global-warming\n
               3. https://news.un.org/en/story/2024/09/1154881''',
@@ -425,26 +447,30 @@ Urgent action is required to mitigate the impacts of climate change and protect 
           "Miami Beach, Florida, is at risk of being submerged by rising sea levels. "
           "The city is experiencing frequent flooding, causing damage to "
           "infrastructure and threatening the local economy.",
-    ),    Tour(
+    ),
+    Tour(
       lat: 36.324738,
       lon: 27.959426,
       description:
-          '''Heatwaves are becoming more frequent and severe due to human-induced climate change. A staggering 93% of 152 extreme-weather studies conducted over the past two decades concluded that climate change made extreme heat events more likely or more intense. For instance, the June 2024 heatwave across the US, Mexico, and Central America was made 35 times more likely and 1.4°C warmer due to climate change.''',
+          '''Heatwaves are becoming more frequent and severe due to human-induced climate change. 
+          A staggering 93% of 152 extreme-weather studies conducted over the past two decades concluded that climate change made extreme heat events more likely or more intense.
+           For instance, the June 2024 heatwave across the US, Mexico, and Central America was made 35 times more likely and 1.4°C warmer due to climate change.''',
     ),
   ],
 );
 
 final MapState realMapState2200 = MapState(
   zones: [
-    MapZone( //desertification zone
+    MapZone(
+      //desertification zone
       points: [
         LatLng(30.0444, 31.2357),
-        LatLng(21.0000, 18.0000),  
-        LatLng(15.4542, 18.7322),  
+        LatLng(21.0000, 18.0000),
+        LatLng(15.4542, 18.7322),
         LatLng(13.0000, 24.0000),
-        LatLng(12.8628, 30.2176),  
-        LatLng(15.6000, 36.4000), 
-        LatLng(22.0000, 36.0000)   
+        LatLng(12.8628, 30.2176),
+        LatLng(15.6000, 36.4000),
+        LatLng(22.0000, 36.0000)
       ],
       polygonPin: const Pin(
         title: 'Desertified Region: Loss of Homes & Properties',
@@ -473,7 +499,7 @@ final MapState realMapState2200 = MapState(
       polygonPin: const Pin(
         title: 'Flooded Region: Loss of Homes & Properties',
         description:
-        'Severe flooding in Galveston, Texas, due to sea-level rise. Many'
+            'Severe flooding in Galveston, Texas, due to sea-level rise. Many'
             ' areas are submerged, with communities experiencing widespread '
             'property damage and loss of livelihoods.',
         location: LatLng(29.7319, -94.2994),
@@ -493,7 +519,7 @@ final MapState realMapState2200 = MapState(
       polygonPin: const Pin(
         title: 'Heatwave Havoc: Threat to Lives and Livelihoods',
         description:
-        '''Rising global temperatures are leading to extreme heatwaves in cities like Dhaka, 
+            '''Rising global temperatures are leading to extreme heatwaves in cities like Dhaka, 
             threatening the health of millions. Increased heat exacerbates water scarcity and disrupts
              agriculture, putting livelihoods at risk. Immediate action is needed to combat
               the impacts of climate change and protect vulnerable communities. Helpful materials:\n
@@ -510,7 +536,7 @@ final MapState realMapState2200 = MapState(
     Pin(
       title: 'Venice, Italy',
       description:
-      'Venice, Italy, is at risk of being submerged by rising sea levels. '
+          'Venice, Italy, is at risk of being submerged by rising sea levels. '
           'The city is experiencing frequent flooding, causing damage to '
           'historic buildings and threatening the local economy.',
       location: LatLng(45.4408, 12.3155),
@@ -520,7 +546,7 @@ final MapState realMapState2200 = MapState(
     Pin(
       title: 'Miami Beach, Florida',
       description:
-      'Miami Beach, Florida, is at risk of being submerged by rising sea levels. '
+          'Miami Beach, Florida, is at risk of being submerged by rising sea levels. '
           'The city is experiencing frequent flooding, causing damage to '
           'infrastructure and threatening the local economy.',
       location: LatLng(25.7907, -80.1300),
@@ -532,7 +558,7 @@ final MapState realMapState2200 = MapState(
       lat: 29.7319,
       lon: -94.2994,
       description:
-      "This tour highlights areas in Galveston severely impacted by a 1.98-meter "
+          "This tour highlights areas in Galveston severely impacted by a 1.98-meter "
           "rise in sea levels.\n Residents in these zones have lost homes, businesses,"
           " and property to encroaching waters.\n The devastation has displaced entire "
           "communities and significantly altered the region's landscape.\n"
@@ -545,7 +571,7 @@ final MapState realMapState2200 = MapState(
       lat: 23.8142,
       lon: 90.3903,
       description:
-      '''Residents in these areas are experiencing worsening heatwaves, leading to health crises and compromised livelihoods.
+          '''Residents in these areas are experiencing worsening heatwaves, leading to health crises and compromised livelihoods.
 The escalating temperatures are pushing communities towards uninhabitability, with outdoor activities becoming dangerous.
 Urgent action is required to mitigate the impacts of climate change and protect vulnerable populations.''',
     ),
@@ -553,7 +579,7 @@ Urgent action is required to mitigate the impacts of climate change and protect 
       lat: 45.4408,
       lon: 12.3155,
       description:
-      "Venice, Italy, is at risk of being submerged by rising sea levels. "
+          "Venice, Italy, is at risk of being submerged by rising sea levels. "
           "The city is experiencing frequent flooding, causing damage to "
           "historic buildings and threatening the local economy.",
     ),
@@ -561,13 +587,12 @@ Urgent action is required to mitigate the impacts of climate change and protect 
       lat: 25.7907,
       lon: -80.1300,
       description:
-      "Miami Beach, Florida, is at risk of being submerged by rising sea levels. "
+          "Miami Beach, Florida, is at risk of being submerged by rising sea levels. "
           "The city is experiencing frequent flooding, causing damage to "
           "infrastructure and threatening the local economy.",
     )
   ],
 );
-
 
 final List<MapState> mapStates = [
   realMapState2024,
