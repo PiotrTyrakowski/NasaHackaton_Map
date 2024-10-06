@@ -86,10 +86,33 @@ final MapState realMapState2100 = MapState(
   ],
 );
 
+
 final MapState realMapState2150 = MapState(
-  zones: [],
+  zones: [
+    MapZone(
+      points: [
+        LatLng(29.4514, -94.6322),
+        LatLng(29.7014, -94.6803),
+        LatLng(29.7722, -94.2950),
+        LatLng(29.8494, -94.3011),
+        LatLng(29.9722, -94.1525),
+        LatLng(29.9744, -94.0839),
+        LatLng(29.6792, -93.8342),
+        LatLng(29.6614, -94.0881)
+      ],
+      polygonPin: Pin(
+        title: 'Galveston',
+        description: 'Galveston, Texas',
+        location: LatLng(29.3013, -94.7977),
+        assetPath: 'assets/icons/flod_icon.png',
+      ),
+      polygonColor: Colors.blue.withOpacity(0.5),
+    )
+  ],
   pins: [],
-  tours: [],
+  tours: [
+        Tour(lat: 29.3013, lon: -94.7977),
+  ],
 );
 
 final MapState realMapState2200 = MapState(

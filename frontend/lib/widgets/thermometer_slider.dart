@@ -14,7 +14,7 @@ class ThermometerSlider extends StatefulWidget {
 class _ThermometerSliderState extends State<ThermometerSlider> {
   double _currentYear = 2024;
   double _minYear = 2024;
-  double _maxYear = 2100;
+  double _maxYear = 2200;
 
 
   @override
