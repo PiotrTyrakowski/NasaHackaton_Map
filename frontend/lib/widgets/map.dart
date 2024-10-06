@@ -27,12 +27,15 @@ class MapScreenState extends State<MapScreen> {
         position.longitude <= bounds.northeast.longitude;
   }
 
-  void _incrementMapIndex() {
+  void _incrementMapStateIndex() {
     mapStateIndex = (mapStateIndex + 1) % mapStates.length;
     tourIndex = 0;
   }
 
+  
   void _incrementTourAndCords(){
+    if (mapStates[mapStateIndex].tours.isEmpty)
+      return;
     tourIndex = (tourIndex + 1) % mapStates[mapStateIndex].tours.length;
     lon = mapStates[mapStateIndex].tours[tourIndex].lon;
     lat = mapStates[mapStateIndex].tours[tourIndex].lat;
