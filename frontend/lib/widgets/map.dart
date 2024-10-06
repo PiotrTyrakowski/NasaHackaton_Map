@@ -13,6 +13,18 @@ class MapScreen extends StatefulWidget {
 
 class MapScreenState extends State<MapScreen> {
   GoogleMapController? _controller;
+  late LatLng _currentPosition;
+
+  @override
+  void initState() {
+    super.initState();
+    _currentPosition = LatLng(lat, lon); // Initialize with default or first position
+  }
+
+  void updateMapForYear(double year) {
+    // Implement your logic to update the map view based on the year
+    print("Map updated for year: $year");
+  }
   
   double lat = (mapStates.isNotEmpty && mapStates[0].tours.isNotEmpty) ? mapStates[0].tours[0].lat : 50.5822;
   double lon = (mapStates.isNotEmpty && mapStates[0].tours.isNotEmpty) ? mapStates[0].tours[0].lon : 22.0535;
@@ -44,10 +56,13 @@ class MapScreenState extends State<MapScreen> {
   void _updateCameraPosition() {
     setState(() {
       if (_controller != null) {
-        _controller!
-            .animateCamera(CameraUpdate.newLatLngZoom(LatLng(lat, lon), 14));
+        _controller!.animateCamera(CameraUpdate.newLatLngZoom(_currentPosition, 14));
       }
     });
+  }
+
+  void _onMapMoved(CameraPosition position) {
+    _currentPosition = position.target; // Update current position when map is moved
   }
 
   @override
@@ -90,8 +105,9 @@ class MapScreenState extends State<MapScreen> {
                     onMapCreated: (GoogleMapController controller) {
                       _controller = controller;
                     },
+                    onCameraMove: _onMapMoved, // Add this line to track map movement
                     initialCameraPosition: CameraPosition(
-                      target: LatLng(lat, lon),
+                      target: _currentPosition, // Use the stored position
                       zoom: 14,
                     ),
                     mapType: MapType.satellite,

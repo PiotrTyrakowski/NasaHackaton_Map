@@ -15,14 +15,20 @@ class ThermometerSlider extends StatefulWidget {
 }
 
 class _ThermometerSliderState extends State<ThermometerSlider> {
-  late double _currentYear;
+  late ValueNotifier<double> _currentYearNotifier;
   final double _minYear = 2024;
   final double _maxYear = 2100;
 
   @override
   void initState() {
     super.initState();
-    _currentYear = widget.currentYear;
+    _currentYearNotifier = ValueNotifier(widget.currentYear);
+  }
+
+  @override
+  void dispose() {
+    _currentYearNotifier.dispose();
+    super.dispose();
   }
 
   @override
@@ -33,7 +39,7 @@ class _ThermometerSliderState extends State<ThermometerSlider> {
         gradient: LinearGradient(
           begin: Alignment.topCenter,
           end: Alignment.bottomCenter,
-          colors: _getGradientForYear(_currentYear),
+          colors: _getGradientForYear(_currentYearNotifier.value),
         ),
       ),
       child: Stack(
@@ -67,25 +73,28 @@ class _ThermometerSliderState extends State<ThermometerSlider> {
                             height: 30,
                             decoration: BoxDecoration(
                               gradient: LinearGradient(
-                                colors: _getGradientForYear(_currentYear),
+                                colors: _getGradientForYear(_currentYearNotifier.value),
                                 begin: Alignment.centerLeft,
                                 end: Alignment.centerRight,
                               ),
                               borderRadius: BorderRadius.circular(15),
                             ),
                           ),
-                          Slider(
-                            value: _currentYear,
-                            min: _minYear,
-                            max: _maxYear,
-                            divisions: (_maxYear - _minYear).toInt(),
-                            onChanged: (double value) {
-                              setState(() {
-                                _currentYear = value;
-                              });
-                              widget.onYearChanged(value);
+                          ValueListenableBuilder<double>(
+                            valueListenable: _currentYearNotifier,
+                            builder: (context, currentYear, child) {
+                              return Slider(
+                                value: currentYear,
+                                min: _minYear,
+                                max: _maxYear,
+                                divisions: (_maxYear - _minYear).toInt(),
+                                onChanged: (double value) {
+                                  _currentYearNotifier.value = value;
+                                  widget.onYearChanged(value);
+                                },
+                                label: currentYear.toStringAsFixed(0),
+                              );
                             },
-                            label: _currentYear.toStringAsFixed(0),
                           ),
                         ],
                       ),
@@ -113,3 +122,5 @@ class _ThermometerSliderState extends State<ThermometerSlider> {
     return [Colors.red, Colors.redAccent];
   }
 }
+
+
