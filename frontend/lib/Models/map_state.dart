@@ -1,7 +1,18 @@
+import 'package:flutter/material.dart';
 import 'package:frontend/Models/pin.dart';
 import 'package:frontend/Models/polygon.dart';
 import 'package:frontend/Models/tour.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+
+class mapObjects{
+  final Set<Marker> markers;
+  final Set<Polygon> polygons;
+
+  const mapObjects({
+    required this.markers,
+    required this.polygons,
+  });
+}
 
 class MapState {
   final List<MapZone> zones;
@@ -14,22 +25,21 @@ class MapState {
     required this.tours,
   });
 
-  Future<Set<Marker>> get markers async {
+  Future<mapObjects> getMapObjects(BuildContext context) async {
     final Set<Marker> allMarkers = {};
+    final Set<Polygon> allPolygons = {};
 
-    // Add markers for pins
     for (final pin in pins) {
-      allMarkers.add(await pin.getMarker());
+      final marker = await pin.getMarker(context);
+      allMarkers.add(marker);
     }
-
-    // Add markers for zones
     for (final zone in zones) {
-      final zoneMarker = await zone.marker;
+      final zoneMarker = await zone.getMarker(context);
       allMarkers.add(zoneMarker);
+      final polygon = await zone.getPolygon(context);
+      allPolygons.add(polygon);
     }
 
-    return allMarkers;
+    return mapObjects(markers: allMarkers, polygons: allPolygons);
   }
-
-  List<Polygon> get polygons => zones.map((zone) => zone.polygon).toList();
 }

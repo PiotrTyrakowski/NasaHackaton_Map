@@ -70,8 +70,8 @@ class MapScreenState extends State<MapScreen> {
               )),
         ],
       ),
-      body: FutureBuilder<Set<Marker>>(
-        future: Future.value(mapStates[mapStateIndex].markers),
+      body: FutureBuilder<mapObjects>(
+        future: Future.value(mapStates[mapStateIndex].getMapObjects(context)),
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
             return const Center(child: CircularProgressIndicator());
@@ -87,8 +87,8 @@ class MapScreenState extends State<MapScreen> {
                 zoom: 14,
               ),
               mapType: MapType.satellite,
-              markers: snapshot.data ?? {},
-              polygons: Set<Polygon>.from(mapStates[mapStateIndex].polygons),
+              markers: snapshot.data?.markers ?? {},
+              polygons: snapshot.data?.polygons ?? {},
             );
           }
         },
