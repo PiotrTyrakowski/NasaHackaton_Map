@@ -1,19 +1,32 @@
 import 'package:flutter/material.dart';
 
+
 class ThermometerSlider extends StatefulWidget {
+  final Function(double) onYearChanged;
+  final double initialYear;
+
+  ThermometerSlider({required this.onYearChanged, required this.initialYear});
+
   @override
   _ThermometerSliderState createState() => _ThermometerSliderState();
 }
 
 class _ThermometerSliderState extends State<ThermometerSlider> {
-  double _currentYear = 2024;
+  late double _currentYear;
   double _minYear = 2024;
-  double _maxYear = 2100;
+  double _maxYear = 2200;
+
+  @override
+  void initState() {
+    super.initState();
+    _currentYear = widget.initialYear;
+  }
 
   @override
   Widget build(BuildContext context) {
     return AnimatedContainer(
       duration: Duration(milliseconds: 500),
+      width: 100,  // Set a fixed width for the slider
       decoration: BoxDecoration(
         gradient: LinearGradient(
           begin: Alignment.topCenter,
@@ -42,8 +55,8 @@ class _ThermometerSliderState extends State<ThermometerSlider> {
                         trackHeight: 30,
                         thumbShape: RoundSliderThumbShape(enabledThumbRadius: 30),
                         overlayShape: RoundSliderOverlayShape(overlayRadius: 40),
-                        activeTrackColor: Colors.transparent, // Custom track color
-                        inactiveTrackColor: Colors.transparent, // Custom track color
+                        activeTrackColor: Colors.transparent,
+                        inactiveTrackColor: Colors.transparent,
                         overlayColor: Colors.red.withAlpha(32),
                       ),
                       child: Stack(
@@ -68,6 +81,7 @@ class _ThermometerSliderState extends State<ThermometerSlider> {
                               setState(() {
                                 _currentYear = value;
                               });
+                              widget.onYearChanged(value);
                             },
                             label: _currentYear.toStringAsFixed(0),
                           ),
@@ -88,7 +102,6 @@ class _ThermometerSliderState extends State<ThermometerSlider> {
     );
   }
 
-  // Gradients for different year ranges
   List<Color> _getGradientForYear(double year) {
     if (year < 2040) return [Colors.blue[900]!, Colors.blue];
     if (year < 2060) return [Colors.blue, Colors.green];

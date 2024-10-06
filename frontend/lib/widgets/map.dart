@@ -58,7 +58,15 @@ class MapScreenState extends State<MapScreen> {
 
   void _onYearChanged(double year) {
     setState(() {
-      mapStateIndex = (year - 2024).round();
+      if (year < 2050){
+        mapStateIndex = 0;
+      } else if (year >= 2050 && year < 2100){
+        mapStateIndex = 1;
+      } else if (year >= 2100 && year < 2150){
+        mapStateIndex = 2;
+      } else if (year >= 2150 && year < 2200){
+        mapStateIndex = 3;
+      }
       tourIndex = 0;
     });
   }
@@ -86,8 +94,8 @@ class MapScreenState extends State<MapScreen> {
           Container(
             width: 100, // Set a fixed width for the ThermometerSlider
             child: ThermometerSlider(
-              // onYearChanged: _onYearChanged,
-              // initialYear: 2024 + mapStateIndex.toDouble(),
+              onYearChanged: _onYearChanged,
+              initialYear: 2024 + mapStateIndex.toDouble() * 50,
             ),
           ),
           Expanded(
