@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:frontend/Models/pin.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
-import '../widgets/map_zone_wdiget.dart';
+import '../widgets/map_zone_widget.dart';
 
 class MapZone {
   final List<LatLng> points;
