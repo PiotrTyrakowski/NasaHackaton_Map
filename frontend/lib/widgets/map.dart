@@ -67,8 +67,10 @@ class MapScreenState extends State<MapScreen> {
 
   Future<void> _updateCameraPosition() async {
     if (_controller != null) {
+      double z = await _controller!.getZoomLevel();
+
       await _controller!
-          .animateCamera(CameraUpdate.newLatLngZoom(LatLng(lat, lon), zoom));
+          .animateCamera(CameraUpdate.newLatLngZoom(LatLng(lat, lon), z));
     }
   }
 
