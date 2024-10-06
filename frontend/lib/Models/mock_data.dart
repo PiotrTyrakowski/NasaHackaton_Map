@@ -141,7 +141,17 @@ final MapState realMapState2100 = MapState(
       polygonColor: Colors.red.withOpacity(0.5),
     ),
   ],
-  pins: [],
+  pins: [
+    Pin(
+      title: 'Miami Beach, Florida',
+      description:
+          'Miami Beach, Florida, is at risk of being submerged by rising sea levels. '
+          'The city is experiencing frequent flooding, causing damage to '
+          'infrastructure and threatening the local economy.',
+      location: LatLng(25.7907, -80.1300),
+      assetPath: 'assets/icons/miami_icon.png',
+    ),
+  ],
   tours: [
     Tour(
       lat: 29.7319,
@@ -156,6 +166,14 @@ final MapState realMapState2100 = MapState(
           "2. https://www.climate.gov/news-features/climate-qa/can-we-slow-or-even-reverse-global-warming\n"
           "3. https://news.un.org/en/story/2024/09/1154881",
     ),
+    Tour(
+      lat: 25.7907,
+      lon: -80.1300,
+      description:
+          "Miami Beach, Florida, is at risk of being submerged by rising sea levels. "
+          "The city is experiencing frequent flooding, causing damage to "
+          "infrastructure and threatening the local economy.",
+    )
   ],
 );
 
@@ -184,7 +202,27 @@ final MapState realMapState2150 = MapState(
       polygonColor: Colors.blue.withOpacity(0.5),
     )
   ],
-  pins: [],
+  pins: [
+    Pin(
+      title: 'Venice, Italy',
+      description:
+          'Venice, Italy, is at risk of being submerged by rising sea levels. '
+          'The city is experiencing frequent flooding, causing damage to '
+          'historic buildings and threatening the local economy.',
+      location: LatLng(45.4408, 12.3155),
+      assetPath: 'assets/icons/venice_icon.png',
+    ),
+    // Miami Beach will be flooded by 2100
+    Pin(
+      title: 'Miami Beach, Florida',
+      description:
+          'Miami Beach, Florida, is at risk of being submerged by rising sea levels. '
+          'The city is experiencing frequent flooding, causing damage to '
+          'infrastructure and threatening the local economy.',
+      location: LatLng(25.7907, -80.1300),
+      assetPath: 'assets/icons/miami_icon.png',
+    ),
+  ],
   tours: [
     Tour(
       lat: 29.7319,
@@ -207,6 +245,22 @@ final MapState realMapState2150 = MapState(
 The escalating temperatures are pushing communities towards uninhabitability, with outdoor activities becoming dangerous.
 Urgent action is required to mitigate the impacts of climate change and protect vulnerable populations.''',
     ),
+    Tour(
+      lat: 45.4408,
+      lon: 12.3155,
+      description:
+          "Venice, Italy, is at risk of being submerged by rising sea levels. "
+          "The city is experiencing frequent flooding, causing damage to "
+          "historic buildings and threatening the local economy.",
+    ),
+    Tour(
+      lat: 25.7907,
+      lon: -80.1300,
+      description:
+          "Miami Beach, Florida, is at risk of being submerged by rising sea levels. "
+          "The city is experiencing frequent flooding, causing damage to "
+          "infrastructure and threatening the local economy.",
+    )
   ],
 );
 
