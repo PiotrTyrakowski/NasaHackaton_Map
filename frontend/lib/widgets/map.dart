@@ -89,39 +89,34 @@ class MapScreenState extends State<MapScreen> {
               )),
         ],
       ),
-      body: Row(
+      body: Stack(
         children: [
-          Container(
-            width: 100, // Set a fixed width for the ThermometerSlider
-            child: ThermometerSlider(
-              onYearChanged: _onYearChanged,
-              initialYear: 2024 + mapStateIndex.toDouble() * 50,
-            ),
+          FutureBuilder<mapObjects>(
+            future: Future.value(mapStates[mapStateIndex].getMapObjects(context)),
+            builder: (context, snapshot) {
+              if (snapshot.connectionState == ConnectionState.waiting) {
+                return const Center(child: CircularProgressIndicator());
+              } else if (snapshot.hasError) {
+                return Center(child: Text('Error: ${snapshot.error}'));
+              } else {
+                return GoogleMap(
+                  onMapCreated: (GoogleMapController controller) {
+                    _controller = controller;
+                  },
+                  initialCameraPosition: CameraPosition(
+                    target: LatLng(lat, lon),
+                    zoom: 14,
+                  ),
+                  mapType: MapType.satellite,
+                  markers: snapshot.data?.markers ?? {},
+                  polygons: snapshot.data?.polygons ?? {},
+                );
+              }
+            },
           ),
-          Expanded(
-            child: FutureBuilder<mapObjects>(
-              future: Future.value(mapStates[mapStateIndex].getMapObjects(context)),
-              builder: (context, snapshot) {
-                if (snapshot.connectionState == ConnectionState.waiting) {
-                  return const Center(child: CircularProgressIndicator());
-                } else if (snapshot.hasError) {
-                  return Center(child: Text('Error: ${snapshot.error}'));
-                } else {
-                  return GoogleMap(
-                    onMapCreated: (GoogleMapController controller) {
-                      _controller = controller;
-                    },
-                    initialCameraPosition: CameraPosition(
-                      target: LatLng(lat, lon),
-                      zoom: 14,
-                    ),
-                    mapType: MapType.satellite,
-                    markers: snapshot.data?.markers ?? {},
-                    polygons: snapshot.data?.polygons ?? {},
-                  );
-                }
-              },
-            ),
+          ThermometerSlider(
+            onYearChanged: _onYearChanged,
+            initialYear: 2024 + mapStateIndex.toDouble() * 50,
           ),
         ],
       ),
