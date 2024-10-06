@@ -58,6 +58,36 @@ final MapZone zone3 = MapZone(
   polygonColor: Colors.green.withOpacity(0.5),
 );
 
+final MapZone zone4 = MapZone(
+  points: [
+    const LatLng(38.7749, -123.4194),
+    const LatLng(39.7849, -121.4294),
+    const LatLng(41.7949, -126.4394),
+  ],
+  polygonPin: pin1,
+  polygonColor: Colors.red.withOpacity(0.5),
+);
+
+final MapZone zone5 = MapZone(
+  points: [
+    const LatLng(35.0522, -119.2437),
+    const LatLng(37.0622, -118.2537),
+    const LatLng(32.0722, -113.2637),
+  ],
+  polygonPin: pin2,
+  polygonColor: Colors.blue.withOpacity(0.5),
+);
+
+final MapZone zone6 = MapZone(
+  points: [
+    const LatLng(41.7128, -74.0060),
+    const LatLng(39.7228, -75.0160),
+    const LatLng(40.7328, -75.0260),
+  ],
+  polygonPin: pin3,
+  polygonColor: Colors.green.withOpacity(0.5),
+);
+
 // Initialize Tours
 final Tour tour1 = Tour(lat: 37.7749, lon: -122.4194); // San Francisco tour
 final Tour tour2 = Tour(lat: 34.0522, lon: -118.2437); // Los Angeles tour
@@ -67,6 +97,12 @@ final Tour tour3 = Tour(lat: 40.7128, lon: -74.0060);  // New York tour
 final List<MapState> mapStates = [
   MapState(
     zones: [zone1, zone2, zone3],   // All MapZones combined
+    pins: [pin1, pin2, pin3],       // All Pins combined
+    tours: [tour1, tour2, tour3],   // All Tours combined
+  ),
+
+  MapState(
+    zones: [zone4, zone5, zone6],   // All MapZones combined
     pins: [pin1, pin2, pin3],       // All Pins combined
     tours: [tour1, tour2, tour3],   // All Tours combined
   ),

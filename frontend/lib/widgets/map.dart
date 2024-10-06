@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:frontend/widgets/thermometer_slider.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 import '../Models/map_state.dart';
@@ -13,9 +14,13 @@ class MapScreen extends StatefulWidget {
 
 class MapScreenState extends State<MapScreen> {
   GoogleMapController? _controller;
-  
-  double lat = (mapStates.isNotEmpty && mapStates[0].tours.isNotEmpty) ? mapStates[0].tours[0].lat : 50.5822;
-  double lon = (mapStates.isNotEmpty && mapStates[0].tours.isNotEmpty) ? mapStates[0].tours[0].lon : 22.0535;
+
+  double lat = (mapStates.isNotEmpty && mapStates[0].tours.isNotEmpty)
+      ? mapStates[0].tours[0].lat
+      : 50.5822;
+  double lon = (mapStates.isNotEmpty && mapStates[0].tours.isNotEmpty)
+      ? mapStates[0].tours[0].lon
+      : 22.0535;
 
   int mapStateIndex = 0;
   int tourIndex = 0;
@@ -28,25 +33,33 @@ class MapScreenState extends State<MapScreen> {
   }
 
   void _incrementMapStateIndex() {
-    mapStateIndex = (mapStateIndex + 1) % mapStates.length;
-    tourIndex = 0;
+    setState(() {
+      mapStateIndex = (mapStateIndex + 1) % mapStates.length;
+      tourIndex = 0;
+    });
   }
 
-  
-  void _incrementTourAndCords(){
-    if (mapStates[mapStateIndex].tours.isEmpty)
-      return;
-    tourIndex = (tourIndex + 1) % mapStates[mapStateIndex].tours.length;
-    lon = mapStates[mapStateIndex].tours[tourIndex].lon;
-    lat = mapStates[mapStateIndex].tours[tourIndex].lat;
+  void _incrementTourAndCords() {
+    setState(() {
+      if (mapStates[mapStateIndex].tours.isEmpty) return;
+      tourIndex = (tourIndex + 1) % mapStates[mapStateIndex].tours.length;
+      lon = mapStates[mapStateIndex].tours[tourIndex].lon;
+      lat = mapStates[mapStateIndex].tours[tourIndex].lat;
+    });
+    _updateCameraPosition();
   }
 
   void _updateCameraPosition() {
+    if (_controller != null) {
+      _controller!
+          .animateCamera(CameraUpdate.newLatLngZoom(LatLng(lat, lon), 14));
+    }
+  }
+
+  void _onYearChanged(double year) {
     setState(() {
-      if (_controller != null) {
-        _controller!
-            .animateCamera(CameraUpdate.newLatLngZoom(LatLng(lat, lon), 14));
-      }
+      mapStateIndex = (year - 2024).round();
+      tourIndex = 0;
     });
   }
 
@@ -57,44 +70,52 @@ class MapScreenState extends State<MapScreen> {
         title: const Text("Environment map"),
         actions: [
           TextButton(
-              onPressed: () {
-                _incrementTourAndCords();
-                _updateCameraPosition();
-              },
+              onPressed: _incrementTourAndCords,
               style: TextButton.styleFrom(
-                backgroundColor: Colors.blue, // Blue background color
-                padding: const EdgeInsets.symmetric(
-                    horizontal: 16.0), // Adjust padding
+                backgroundColor: Colors.blue,
+                padding: const EdgeInsets.symmetric(horizontal: 16.0),
               ),
               child: const Text(
                 'Tour',
-                style: TextStyle(
-                    color: Colors.white), // Ensure the text is visible
+                style: TextStyle(color: Colors.white),
               )),
         ],
       ),
-      body: FutureBuilder<mapObjects>(
-        future: Future.value(mapStates[mapStateIndex].getMapObjects(context)),
-        builder: (context, snapshot) {
-          if (snapshot.connectionState == ConnectionState.waiting) {
-            return const Center(child: CircularProgressIndicator());
-          } else if (snapshot.hasError) {
-            return Center(child: Text('Error: ${snapshot.error}'));
-          } else {
-            return GoogleMap(
-              onMapCreated: (GoogleMapController controller) {
-                _controller = controller;
+      body: Row(
+        children: [
+          Container(
+            width: 100, // Set a fixed width for the ThermometerSlider
+            child: ThermometerSlider(
+              // onYearChanged: _onYearChanged,
+              // initialYear: 2024 + mapStateIndex.toDouble(),
+            ),
+          ),
+          Expanded(
+            child: FutureBuilder<mapObjects>(
+              future: Future.value(mapStates[mapStateIndex].getMapObjects(context)),
+              builder: (context, snapshot) {
+                if (snapshot.connectionState == ConnectionState.waiting) {
+                  return const Center(child: CircularProgressIndicator());
+                } else if (snapshot.hasError) {
+                  return Center(child: Text('Error: ${snapshot.error}'));
+                } else {
+                  return GoogleMap(
+                    onMapCreated: (GoogleMapController controller) {
+                      _controller = controller;
+                    },
+                    initialCameraPosition: CameraPosition(
+                      target: LatLng(lat, lon),
+                      zoom: 14,
+                    ),
+                    mapType: MapType.satellite,
+                    markers: snapshot.data?.markers ?? {},
+                    polygons: snapshot.data?.polygons ?? {},
+                  );
+                }
               },
-              initialCameraPosition: CameraPosition(
-                target: LatLng(lat, lon),
-                zoom: 14,
-              ),
-              mapType: MapType.satellite,
-              markers: snapshot.data?.markers ?? {},
-              polygons: snapshot.data?.polygons ?? {},
-            );
-          }
-        },
+            ),
+          ),
+        ],
       ),
     );
   }
