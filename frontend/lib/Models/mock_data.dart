@@ -59,6 +59,27 @@ final MapState realMapState2050 = MapState(
       ),
       polygonColor: Colors.red.withOpacity(0.5),
     ),
+    MapZone(
+      points: [
+        LatLng(36.326435, 27.953322), // Northernmost Point (near Gazipur)
+        LatLng(36.282166, 27.940276), // Easternmost Point (near Araihazar)
+        LatLng(36.269660, 27.973537), // Southeastern Point (near Narayanganj)
+        LatLng(36.288744, 28.006160), // Southwestern Point (near Hemayetpur)
+        LatLng(36.317432, 28.003117), // Westernmost Point (near Savar)
+        LatLng(36.338982, 27.974018), // Northwestern Point (near Ashulia)
+      ],
+      polygonPin: const Pin(
+        title: 'title',
+        description:
+            '''desc. Helpful materials:\n
+              1. https://science.nasa.gov/climate-change/\n
+              2. https://www.climate.gov/news-features/climate-qa/can-we-slow-or-even-reverse-global-warming\n
+              3. https://news.un.org/en/story/2024/09/1154881''',
+        location: LatLng(36.324738, 27.959426),
+        assetPath: 'assets/icons/flod_icon.png',
+      ),
+      polygonColor: Colors.black.withOpacity(0.5),
+    ),
   ],
   pins: [],
   tours: [
@@ -78,6 +99,12 @@ final MapState realMapState2050 = MapState(
           '''Residents in these areas are experiencing worsening heatwaves, leading to health crises and compromised livelihoods.
 The escalating temperatures are pushing communities towards uninhabitability, with outdoor activities becoming dangerous.
 Urgent action is required to mitigate the impacts of climate change and protect vulnerable populations.''',
+    ),
+    Tour(
+      lat: 36.324738,
+      lon: 27.959426,
+      description:
+          '''opis''',
     ),
   ],
 );
@@ -140,7 +167,31 @@ final MapState realMapState2100 = MapState(
       ),
       polygonColor: Colors.red.withOpacity(0.5),
     ),
+<<<<<<< HEAD
 
+=======
+    MapZone(
+      points: [
+        LatLng(36.326435, 27.953322), // Northernmost Point (near Gazipur)
+        LatLng(36.282166, 27.940276), // Easternmost Point (near Araihazar)
+        LatLng(36.269660, 27.973537), // Southeastern Point (near Narayanganj)
+        LatLng(36.288744, 28.006160), // Southwestern Point (near Hemayetpur)
+        LatLng(36.317432, 28.003117), // Westernmost Point (near Savar)
+        LatLng(36.338982, 27.974018), // Northwestern Point (near Ashulia)
+      ],
+      polygonPin: const Pin(
+        title: 'title',
+        description:
+            '''desc. Helpful materials:\n
+              1. https://science.nasa.gov/climate-change/\n
+              2. https://www.climate.gov/news-features/climate-qa/can-we-slow-or-even-reverse-global-warming\n
+              3. https://news.un.org/en/story/2024/09/1154881''',
+        location: LatLng(36.324738, 27.959426),
+        assetPath: 'assets/icons/flod_icon.png',
+      ),
+      polygonColor: Colors.black.withOpacity(0.5),
+    ),
+>>>>>>> 32e4dee (death zones)
   ],
   pins: [
     Pin(
@@ -174,7 +225,13 @@ final MapState realMapState2100 = MapState(
           "Miami Beach, Florida, is at risk of being submerged by rising sea levels. "
           "The city is experiencing frequent flooding, causing damage to "
           "infrastructure and threatening the local economy.",
-    )
+    ),
+    Tour(
+      lat: 36.324738,
+      lon: 27.959426,
+      description:
+          '''opis''',
+    ),
   ],
 );
 
@@ -204,6 +261,30 @@ final MapState realMapState2150 = MapState(
     ),
     MapZone(
       points: [
+<<<<<<< HEAD
+=======
+        LatLng(36.326435, 27.953322), // Northernmost Point (near Gazipur)
+        LatLng(36.282166, 27.940276), // Easternmost Point (near Araihazar)
+        LatLng(36.269660, 27.973537), // Southeastern Point (near Narayanganj)
+        LatLng(36.288744, 28.006160), // Southwestern Point (near Hemayetpur)
+        LatLng(36.317432, 28.003117), // Westernmost Point (near Savar)
+        LatLng(36.338982, 27.974018), // Northwestern Point (near Ashulia)
+      ],
+      polygonPin: const Pin(
+        title: 'title',
+        description:
+            '''desc. Helpful materials:\n
+              1. https://science.nasa.gov/climate-change/\n
+              2. https://www.climate.gov/news-features/climate-qa/can-we-slow-or-even-reverse-global-warming\n
+              3. https://news.un.org/en/story/2024/09/1154881''',
+        location: LatLng(36.324738, 27.959426),
+        assetPath: 'assets/icons/flod_icon.png',
+      ),
+      polygonColor: Colors.black.withOpacity(0.5),
+    ),
+    MapZone(
+      points: [
+>>>>>>> 32e4dee (death zones)
         LatLng(23.945, 90.406), // Northernmost Point (near Gazipur)
         LatLng(23.793, 90.615), // Easternmost Point (near Araihazar)
         LatLng(23.670, 90.504), // Southeastern Point (near Narayanganj)
@@ -214,7 +295,11 @@ final MapState realMapState2150 = MapState(
       polygonPin: const Pin(
         title: 'Heatwave Havoc: Threat to Lives and Livelihoods',
         description:
+<<<<<<< HEAD
         '''Rising global temperatures are leading to extreme heatwaves in cities like Dhaka, 
+=======
+            '''Rising global temperatures are leading to extreme heatwaves in cities like Dhaka, 
+>>>>>>> 32e4dee (death zones)
             threatening the health of millions. Increased heat exacerbates water scarcity and disrupts
              agriculture, putting livelihoods at risk. Immediate action is needed to combat
               the impacts of climate change and protect vulnerable communities. Helpful materials:\n
@@ -285,7 +370,12 @@ Urgent action is required to mitigate the impacts of climate change and protect 
           "Miami Beach, Florida, is at risk of being submerged by rising sea levels. "
           "The city is experiencing frequent flooding, causing damage to "
           "infrastructure and threatening the local economy.",
-    )
+    ),    Tour(
+      lat: 36.324738,
+      lon: 27.959426,
+      description:
+          '''opis''',
+    ),
   ],
 );
 
