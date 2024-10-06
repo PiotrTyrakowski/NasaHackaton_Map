@@ -13,7 +13,7 @@ class MapZone {
     required this.polygonPin,
     required this.polygonColor});
 
-  Marker get marker => polygonPin.marker;
+  Future<Marker> get marker async => await polygonPin.getMarker();
 
   Polygon get polygon =>
       Polygon(

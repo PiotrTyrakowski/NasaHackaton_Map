@@ -14,8 +14,8 @@ class MapScreen extends StatefulWidget {
 class MapScreenState extends State<MapScreen> {
   GoogleMapController? _controller;
 
-  double lat = 50.049683;
-  double lon = 19.944544;
+  final double lat = 50.049683;
+  final double lon = 19.944544;
 
   MapState state = mockData[0];
 
@@ -29,17 +29,29 @@ class MapScreenState extends State<MapScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: GoogleMap(
-            onMapCreated: (GoogleMapController controller) {
-              _controller = controller;
-            },
-            initialCameraPosition: CameraPosition(
-              target: LatLng(lat, lon),
-              zoom: 14,
-            ),
-            mapType: MapType.satellite,
-            markers: Set<Marker>.from(state.markers),
-            polygons: Set<Polygon>.from(state.polygons),
-        ));
+      body: FutureBuilder<Set<Marker>>(
+        future: Future.value(state.markers),
+        builder: (context, snapshot) {
+          if (snapshot.connectionState == ConnectionState.waiting) {
+            return const Center(child: CircularProgressIndicator());
+          } else if (snapshot.hasError) {
+            return Center(child: Text('Error: ${snapshot.error}'));
+          } else {
+            return GoogleMap(
+              onMapCreated: (GoogleMapController controller) {
+                _controller = controller;
+              },
+              initialCameraPosition: CameraPosition(
+                target: LatLng(lat, lon),
+                zoom: 14,
+              ),
+              mapType: MapType.satellite,
+              markers: snapshot.data ?? {},
+              polygons: Set<Polygon>.from(state.polygons),
+            );
+          }
+        },
+      ),
+    );
   }
 }

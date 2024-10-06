@@ -7,10 +7,28 @@ class MapState {
   final List<MapZone> zones;
   final List<Pin> pins;
 
-  const MapState({required this.center, required this.zones, required this.pins});
+  const MapState({
+    required this.center,
+    required this.zones,
+    required this.pins,
+  });
 
-  List<Marker> get markers =>
-      [...zones.map((zone) => zone.marker), ...pins.map((pin) => pin.marker)];
+  Future<Set<Marker>> get markers async {
+    final Set<Marker> allMarkers = {};
+
+    // Add markers for pins
+    for (final pin in pins) {
+      allMarkers.add(await pin.getMarker());
+    }
+
+    // Add markers for zones
+    for (final zone in zones) {
+      final zoneMarker = await zone.marker;
+      allMarkers.add(zoneMarker);
+    }
+
+    return allMarkers;
+  }
 
   List<Polygon> get polygons => zones.map((zone) => zone.polygon).toList();
 }

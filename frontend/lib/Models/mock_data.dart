@@ -18,8 +18,7 @@ List<MapState> mockData = [
           title: 'San Francisco',
           description: 'San Francisco, CA, USA',
           location: LatLng(37.7749, -122.4194),
-          imageUrl:
-              '',
+          assetPath: "assets/icons/flod_icon.png",
         ),
         polygonColor: Colors.red.withOpacity(0.5),
       ),
