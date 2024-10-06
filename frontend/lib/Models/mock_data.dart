@@ -57,7 +57,7 @@ final MapState realMapState2050 = MapState(
         location: LatLng(23.8142, 90.3903),
         assetPath: 'assets/icons/flod_icon.png',
       ),
-      polygonColor: Colors.black.withOpacity(0.5),
+      polygonColor: Colors.red.withOpacity(0.5),
     ),
   ],
   pins: [],
@@ -115,7 +115,31 @@ final MapState realMapState2100 = MapState(
         assetPath: 'assets/icons/flod_icon.png',
       ),
       polygonColor: Colors.blue.withOpacity(0.5),
-    )
+    ),
+    MapZone(
+      points: [
+        LatLng(23.945, 90.406), // Northernmost Point (near Gazipur)
+        LatLng(23.793, 90.615), // Easternmost Point (near Araihazar)
+        LatLng(23.670, 90.504), // Southeastern Point (near Narayanganj)
+        LatLng(23.751, 90.258), // Southwestern Point (near Hemayetpur)
+        LatLng(23.856, 90.225), // Westernmost Point (near Savar)
+        LatLng(23.870, 90.334), // Northwestern Point (near Ashulia)
+      ],
+      polygonPin: const Pin(
+        title: 'Heatwave Havoc: Threat to Lives and Livelihoods',
+        description:
+            '''Rising global temperatures are leading to extreme heatwaves in cities like Dhaka, 
+            threatening the health of millions. Increased heat exacerbates water scarcity and disrupts
+             agriculture, putting livelihoods at risk. Immediate action is needed to combat
+              the impacts of climate change and protect vulnerable communities. Helpful materials:\n
+              1. https://science.nasa.gov/climate-change/\n
+              2. https://www.climate.gov/news-features/climate-qa/can-we-slow-or-even-reverse-global-warming\n
+              3. https://news.un.org/en/story/2024/09/1154881''',
+        location: LatLng(23.8142, 90.3903),
+        assetPath: 'assets/icons/flod_icon.png',
+      ),
+      polygonColor: Colors.red.withOpacity(0.5),
+    ),
   ],
   pins: [],
   tours: [
@@ -174,6 +198,14 @@ final MapState realMapState2150 = MapState(
           "1. https://science.nasa.gov/climate-change/\n"
           "2. https://www.climate.gov/news-features/climate-qa/can-we-slow-or-even-reverse-global-warming\n"
           "3. https://news.un.org/en/story/2024/09/1154881",
+    ),
+    Tour(
+      lat: 23.8142,
+      lon: 90.3903,
+      description:
+          '''Residents in these areas are experiencing worsening heatwaves, leading to health crises and compromised livelihoods.
+The escalating temperatures are pushing communities towards uninhabitability, with outdoor activities becoming dangerous.
+Urgent action is required to mitigate the impacts of climate change and protect vulnerable populations.''',
     ),
   ],
 );
