@@ -7,6 +7,29 @@ import 'package:frontend/Models/tour.dart';
 
 final MapState realMapState2050 = MapState(
   zones: [
+    MapZone( //desertification zone
+      points: [
+        LatLng(30.0444, 31.2357),
+        LatLng(21.0000, 18.0000),  
+        LatLng(15.4542, 18.7322),  
+        LatLng(13.0000, 24.0000),
+        LatLng(12.8628, 30.2176),  
+        LatLng(15.6000, 36.4000), 
+        LatLng(22.0000, 36.0000)   
+      ],
+      polygonPin: const Pin(
+        title: 'Desertified Region: Loss of Homes & Properties',
+        description:
+            '''Severe desertification in the Sahel region of Africa, driven by prolonged drought and climate change. Large expanses of formerly arable land are turning into desert, causing widespread crop failure, water scarcity, and the displacement of communities. Livelihoods are being devastated as pastoral and farming activities become unsustainable, leading to food insecurity and economic hardship. Helpful materials:\n
+              1. https://science.nasa.gov/climate-change/\n
+              2. https://www.climate.gov/news-features/climate-qa/can-we-slow-or-even-reverse-global-warming\n
+              3. https://news.un.org/en/story/2024/09/1154881
+              4. https://www.nsf.gov/news/news_summ.jsp?cntn_id=244804''',
+        location: LatLng(15.6323, 29.4422),
+        assetPath: 'assets/icons/drough_icon.png',
+      ),
+      polygonColor: const Color.fromARGB(255, 240, 197, 54).withOpacity(0.5),
+    ),
     MapZone(
       points: [
         LatLng(29.4514, -94.6322),
@@ -117,6 +140,29 @@ final MapState realMapState2024 = MapState(
 
 final MapState realMapState2100 = MapState(
   zones: [
+    MapZone( //desertification zone
+      points: [
+        LatLng(30.0444, 31.2357),
+        LatLng(21.0000, 18.0000),  
+        LatLng(15.4542, 18.7322),  
+        LatLng(13.0000, 24.0000),
+        LatLng(12.8628, 30.2176),  
+        LatLng(15.6000, 36.4000), 
+        LatLng(22.0000, 36.0000)   
+      ],
+      polygonPin: const Pin(
+        title: 'Desertified Region: Loss of Homes & Properties',
+        description:
+            '''Severe desertification in the Sahel region of Africa, driven by prolonged drought and climate change. Large expanses of formerly arable land are turning into desert, causing widespread crop failure, water scarcity, and the displacement of communities. Livelihoods are being devastated as pastoral and farming activities become unsustainable, leading to food insecurity and economic hardship. Helpful materials:\n
+              1. https://science.nasa.gov/climate-change/\n
+              2. https://www.climate.gov/news-features/climate-qa/can-we-slow-or-even-reverse-global-warming\n
+              3. https://news.un.org/en/story/2024/09/1154881
+              4. https://www.nsf.gov/news/news_summ.jsp?cntn_id=244804''',
+        location: LatLng(15.6323, 29.4422),
+        assetPath: 'assets/icons/drough_icon.png',
+      ),
+      polygonColor: const Color.fromARGB(255, 240, 197, 54).withOpacity(0.5),
+    ),
     MapZone(
       points: [
         LatLng(29.4514, -94.6322),
@@ -233,6 +279,29 @@ final MapState realMapState2100 = MapState(
 
 final MapState realMapState2150 = MapState(
   zones: [
+    MapZone( //desertification zone
+      points: [
+        LatLng(30.0444, 31.2357),
+        LatLng(21.0000, 18.0000),  
+        LatLng(15.4542, 18.7322),  
+        LatLng(13.0000, 24.0000),
+        LatLng(12.8628, 30.2176),  
+        LatLng(15.6000, 36.4000), 
+        LatLng(22.0000, 36.0000)   
+      ],
+      polygonPin: const Pin(
+        title: 'Desertified Region: Loss of Homes & Properties',
+        description:
+            '''Severe desertification in the Sahel region of Africa, driven by prolonged drought and climate change. Large expanses of formerly arable land are turning into desert, causing widespread crop failure, water scarcity, and the displacement of communities. Livelihoods are being devastated as pastoral and farming activities become unsustainable, leading to food insecurity and economic hardship. Helpful materials:\n
+              1. https://science.nasa.gov/climate-change/\n
+              2. https://www.climate.gov/news-features/climate-qa/can-we-slow-or-even-reverse-global-warming\n
+              3. https://news.un.org/en/story/2024/09/1154881
+              4. https://www.nsf.gov/news/news_summ.jsp?cntn_id=244804''',
+        location: LatLng(15.6323, 29.4422),
+        assetPath: 'assets/icons/drough_icon.png',
+      ),
+      polygonColor: const Color.fromARGB(255, 240, 197, 54).withOpacity(0.5),
+    ),
     MapZone(
       points: [
         LatLng(29.4514, -94.6322),
@@ -370,6 +439,29 @@ Urgent action is required to mitigate the impacts of climate change and protect 
 
 final MapState realMapState2200 = MapState(
   zones: [
+    MapZone( //desertification zone
+      points: [
+        LatLng(30.0444, 31.2357),
+        LatLng(21.0000, 18.0000),  
+        LatLng(15.4542, 18.7322),  
+        LatLng(13.0000, 24.0000),
+        LatLng(12.8628, 30.2176),  
+        LatLng(15.6000, 36.4000), 
+        LatLng(22.0000, 36.0000)   
+      ],
+      polygonPin: const Pin(
+        title: 'Desertified Region: Loss of Homes & Properties',
+        description:
+            '''Severe desertification in the Sahel region of Africa, driven by prolonged drought and climate change. Large expanses of formerly arable land are turning into desert, causing widespread crop failure, water scarcity, and the displacement of communities. Livelihoods are being devastated as pastoral and farming activities become unsustainable, leading to food insecurity and economic hardship. Helpful materials:\n
+              1. https://science.nasa.gov/climate-change/\n
+              2. https://www.climate.gov/news-features/climate-qa/can-we-slow-or-even-reverse-global-warming\n
+              3. https://news.un.org/en/story/2024/09/1154881
+              4. https://www.nsf.gov/news/news_summ.jsp?cntn_id=244804''',
+        location: LatLng(15.6323, 29.4422),
+        assetPath: 'assets/icons/drough_icon.png',
+      ),
+      polygonColor: const Color.fromARGB(255, 240, 197, 54).withOpacity(0.5),
+    ),
     MapZone(
       points: [
         LatLng(29.4514, -94.6322),
