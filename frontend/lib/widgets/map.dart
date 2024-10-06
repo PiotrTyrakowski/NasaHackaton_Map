@@ -70,21 +70,42 @@ class MapScreenState extends State<MapScreen> {
     }
   }
 
-  void _onYearChanged(double year) {
+  Future<LatLng> getCurrentMapCenter() async {
+    if (_controller == null) {
+      return LatLng(lat, lon);
+    }
+
+    LatLngBounds visibleRegion = await _controller!.getVisibleRegion();
+    return LatLng(
+      (visibleRegion.northeast.latitude + visibleRegion.southwest.latitude) / 2,
+      (visibleRegion.northeast.longitude + visibleRegion.southwest.longitude) / 2,
+    );
+  }
+
+  void _onYearChanged(double year) async {
+    LatLng currentCenter = await getCurrentMapCenter();
+
     setState(() {
-      if (year < 2050){
+      lat = currentCenter.latitude;
+      lon = currentCenter.longitude;
+
+      if (year < 2050) {
         mapStateIndex = 0;
-      } else if (year >= 2050 && year < 2100){
+      } else if (year >= 2050 && year < 2100) {
         mapStateIndex = 1;
-      } else if (year >= 2100 && year < 2150){
+      } else if (year >= 2100 && year < 2150) {
         mapStateIndex = 2;
-      } else if (year >= 2150 && year < 2200){
+      } else if (year >= 2150 && year < 2200) {
         mapStateIndex = 3;
       }
       tourIndex = 0;
       isTourActive = false;
       currentDescription = '';
     });
+
+    if (_controller != null) {
+      _controller!.moveCamera(CameraUpdate.newLatLng(currentCenter));
+    }
   }
 
   @override
