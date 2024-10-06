@@ -3,6 +3,8 @@ import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 import '../Models/map_state.dart';
 import '../Models/mock_data.dart';
+import '../Models/place.dart';
+
 
 class MapScreen extends StatefulWidget {
   const MapScreen({super.key});
@@ -22,15 +24,25 @@ class MapScreenState extends State<MapScreen> {
   }
 
   void updateMapForYear(double year) {
-    // Implement your logic to update the map view based on the year
     print("Map updated for year: $year");
+    _incrementPlaceStoriesIndex();
+    _updatePolygonPoints(); // Update the polygon points based on the year
   }
-  
-  double lat = (mapStates.isNotEmpty && mapStates[0].tours.isNotEmpty) ? mapStates[0].tours[0].lat : 50.5822;
-  double lon = (mapStates.isNotEmpty && mapStates[0].tours.isNotEmpty) ? mapStates[0].tours[0].lon : 22.0535;
 
-  int mapStateIndex = 0;
-  int tourIndex = 0;
+  void _updatePolygonPoints() {
+    setState(() {
+      // Increment the points index and wrap around if necessary
+      zoneIndex = (zoneIndex + 1) % placeStories[placeIndex].zones.length;
+      // mapStates[mapStateIndex].zones.length;
+    });
+  }
+
+  double lat = placeStories[0].tour.lat;
+  double lon = placeStories[0].tour.lon;
+
+
+  int placeIndex = 0;
+  int zoneIndex = 0; // New index to track the current points list
 
   bool _isInBounds(LatLngBounds bounds, LatLng position) {
     return position.latitude >= bounds.southwest.latitude &&
@@ -39,18 +51,18 @@ class MapScreenState extends State<MapScreen> {
         position.longitude <= bounds.northeast.longitude;
   }
 
-  void _incrementMapStateIndex() {
-    mapStateIndex = (mapStateIndex + 1) % mapStates.length;
-    tourIndex = 0;
+  void _incrementPlaceStoriesIndex() {
+    setState(() {
+      placeIndex = (placeIndex + 1) % placeStories.length;
+      print('Current placeIndex: $placeIndex'); // Print the value of placeIndex each time it changes
+    });
   }
 
-  
-  void _incrementTourAndCords(){
-    if (mapStates[mapStateIndex].tours.isEmpty)
-      return;
-    tourIndex = (tourIndex + 1) % mapStates[mapStateIndex].tours.length;
-    lon = mapStates[mapStateIndex].tours[tourIndex].lon;
-    lat = mapStates[mapStateIndex].tours[tourIndex].lat;
+  void _updatePlaceAndCords(){
+    //_incrementPlaceStoriesIndex();
+    lon = placeStories[placeIndex].tour.lon;
+    lat = placeStories[placeIndex].tour.lat;
+    _currentPosition = LatLng(lat, lon); // Initialize with default or first position
   }
 
   void _updateCameraPosition() {
@@ -65,6 +77,16 @@ class MapScreenState extends State<MapScreen> {
     _currentPosition = position.target; // Update current position when map is moved
   }
 
+  void _updateData() {
+    setState(() {
+      // Update your data here
+      _incrementPlaceStoriesIndex();
+      _updatePlaceAndCords();
+      //_incrementTourAndCords();
+      _updateCameraPosition();
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -72,10 +94,8 @@ class MapScreenState extends State<MapScreen> {
         title: const Text("Environment map"),
         actions: [
           TextButton(
-              onPressed: () {
-                _incrementTourAndCords();
-                _updateCameraPosition();
-              },
+              onPressed: _updateData,
+              
               style: TextButton.styleFrom(
                 backgroundColor: Colors.blue, // Blue background color
                 padding: const EdgeInsets.symmetric(
@@ -88,37 +108,35 @@ class MapScreenState extends State<MapScreen> {
               )),
         ],
       ),
-      body: FutureBuilder<mapObjects>(
-        future: Future.value(mapStates[mapStateIndex].getMapObjects(context)),
-        builder: (context, snapshot) {
-          if (snapshot.connectionState == ConnectionState.waiting) {
-            return const Center(child: CircularProgressIndicator());
-          } else if (snapshot.hasError) {
-            return Center(child: Text('Error: ${snapshot.error}'));
-          } else {
-            return Row(
-              children: [
-                Spacer(), // Pushes the map to the right
-                SizedBox(
-                  width: MediaQuery.of(context).size.width * 0.95, // Set width to 80% of screen width
-                  child: GoogleMap(
-                    onMapCreated: (GoogleMapController controller) {
-                      _controller = controller;
-                    },
-                    onCameraMove: _onMapMoved, // Add this line to track map movement
-                    initialCameraPosition: CameraPosition(
-                      target: _currentPosition, // Use the stored position
-                      zoom: 14,
-                    ),
-                    mapType: MapType.satellite,
-                    markers: snapshot.data?.markers ?? {},
-                    polygons: snapshot.data?.polygons ?? {},
-                  ),
+      body: Row(
+        children: [
+          const Spacer(), // Pushes the map to the right
+          SizedBox(
+            width: MediaQuery.of(context).size.width * 0.95, // Set width to 95% of screen width
+            child: GoogleMap(
+              onMapCreated: (GoogleMapController controller) {
+                _controller = controller;
+                print('Current placeIndex: $placeIndex'); // Print the value of placeIndex
+              },
+              onCameraMove: _onMapMoved, // Add this line to track map movement
+              initialCameraPosition: CameraPosition(
+                target: _currentPosition, // Use the stored position
+                zoom: 14,
+              ),
+              mapType: MapType.satellite,
+              markers: {}, // Assuming you don't need markers from FutureBuilder
+              polygons: {
+                Polygon(
+                  polygonId: PolygonId(placeStories[placeIndex].zones[zoneIndex].polygonPin.title),
+                  points: placeStories[placeIndex].zones[zoneIndex].points,
+                  fillColor: placeStories[placeIndex].zones[zoneIndex].polygonColor,
+                  strokeWidth: 1,
+                  onTap: () {}, // Define behavior on tap if needed
                 ),
-              ],
-            );
-          }
-        },
+              },
+            ),
+          ),
+        ],
       ),
     );
   }
