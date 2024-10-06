@@ -167,9 +167,6 @@ final MapState realMapState2100 = MapState(
       ),
       polygonColor: Colors.red.withOpacity(0.5),
     ),
-<<<<<<< HEAD
-
-=======
     MapZone(
       points: [
         LatLng(36.326435, 27.953322), // Northernmost Point (near Gazipur)
@@ -191,7 +188,6 @@ final MapState realMapState2100 = MapState(
       ),
       polygonColor: Colors.black.withOpacity(0.5),
     ),
->>>>>>> 32e4dee (death zones)
   ],
   pins: [
     Pin(
@@ -261,8 +257,6 @@ final MapState realMapState2150 = MapState(
     ),
     MapZone(
       points: [
-<<<<<<< HEAD
-=======
         LatLng(36.326435, 27.953322), // Northernmost Point (near Gazipur)
         LatLng(36.282166, 27.940276), // Easternmost Point (near Araihazar)
         LatLng(36.269660, 27.973537), // Southeastern Point (near Narayanganj)
@@ -284,7 +278,6 @@ final MapState realMapState2150 = MapState(
     ),
     MapZone(
       points: [
->>>>>>> 32e4dee (death zones)
         LatLng(23.945, 90.406), // Northernmost Point (near Gazipur)
         LatLng(23.793, 90.615), // Easternmost Point (near Araihazar)
         LatLng(23.670, 90.504), // Southeastern Point (near Narayanganj)
@@ -295,11 +288,7 @@ final MapState realMapState2150 = MapState(
       polygonPin: const Pin(
         title: 'Heatwave Havoc: Threat to Lives and Livelihoods',
         description:
-<<<<<<< HEAD
-        '''Rising global temperatures are leading to extreme heatwaves in cities like Dhaka, 
-=======
             '''Rising global temperatures are leading to extreme heatwaves in cities like Dhaka, 
->>>>>>> 32e4dee (death zones)
             threatening the health of millions. Increased heat exacerbates water scarcity and disrupts
              agriculture, putting livelihoods at risk. Immediate action is needed to combat
               the impacts of climate change and protect vulnerable communities. Helpful materials:\n
