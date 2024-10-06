@@ -135,7 +135,7 @@ final MapState realMapState2150 = MapState(
       lat: 29.7319,
       lon: -94.2994,
       description:
-          "This tour highlights areas in Galveston severely impacted by a 1.2-meter "
+          "This tour highlights areas in Galveston severely impacted by a 1.98-meter "
           "rise in sea levels.\n Residents in these zones have lost homes, businesses,"
           " and property to encroaching waters.\n The devastation has displaced entire "
           "communities and significantly altered the region's landscape.\n"
