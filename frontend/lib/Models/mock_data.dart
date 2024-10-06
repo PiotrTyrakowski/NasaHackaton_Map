@@ -63,9 +63,9 @@ final MapState mapState2024 = MapState(
   zones: [zone1, zone2, zone3],
   pins: [pin1, pin2, pin3],
   tours: [
-    Tour(lat: 37.7749, lon: -122.4194),
-    Tour(lat: 34.0522, lon: -118.2437),
-    Tour(lat: 40.7128, lon: -74.0060),
+    Tour(lat: 37.7749, lon: -122.4194, description: 'San Francisco'),
+    Tour(lat: 34.0522, lon: -118.2437, description: 'Los Angeles'),
+    Tour(lat: 40.7128, lon: -74.0060, description: 'New York'),
   ],
 );
 
@@ -104,9 +104,9 @@ final MapState mapState2050 = MapState(
   zones: [expandedZone1_2050, expandedZone2_2050, expandedZone3_2050],
   pins: [pin1, pin2, pin3],
   tours: [
-    Tour(lat: 37.7749, lon: -122.4194),
-    Tour(lat: 34.0522, lon: -118.2437),
-    Tour(lat: 40.7128, lon: -74.0060),
+    Tour(lat: 37.7749, lon: -122.4194, description: 'San Francisco'),
+    Tour(lat: 34.0522, lon: -118.2437, description: 'Los Angeles'),
+    Tour(lat: 40.7128, lon: -74.0060, description: 'New York'),
   ],
 );
 
@@ -145,9 +145,9 @@ final MapState mapState2100 = MapState(
   zones: [expandedZone1_2100, expandedZone2_2100, expandedZone3_2100],
   pins: [pin1, pin2, pin3],
   tours: [
-    Tour(lat: 37.7749, lon: -122.4194),
-    Tour(lat: 34.0522, lon: -118.2437),
-    Tour(lat: 40.7128, lon: -74.0060),
+    Tour(lat: 37.7749, lon: -122.4194, description: 'San Francisco'),
+    Tour(lat: 34.0522, lon: -118.2437, description: 'Los Angeles'),
+    Tour(lat: 40.7128, lon: -74.0060, description: 'New York'),
   ],
 );
 
@@ -186,9 +186,9 @@ final MapState mapState2150 = MapState(
   zones: [expandedZone1_2150, expandedZone2_2150, expandedZone3_2150],
   pins: [pin1, pin2, pin3],
   tours: [
-    Tour(lat: 37.7749, lon: -122.4194),
-    Tour(lat: 34.0522, lon: -118.2437),
-    Tour(lat: 40.7128, lon: -74.0060),
+    Tour(lat: 37.7749, lon: -122.4194, description: 'San Francisco'),
+    Tour(lat: 34.0522, lon: -118.2437, description: 'Los Angeles'),
+    Tour(lat: 40.7128, lon: -74.0060, description: 'New York'),
   ],
 );
 
@@ -227,9 +227,9 @@ final MapState mapState2200 = MapState(
   zones: [expandedZone1_2200, expandedZone2_2200, expandedZone3_2200],
   pins: [pin1, pin2, pin3],
   tours: [
-    Tour(lat: 37.7749, lon: -122.4194),
-    Tour(lat: 34.0522, lon: -118.2437),
-    Tour(lat: 40.7128, lon: -74.0060),
+    Tour(lat: 37.7749, lon: -122.4194, description: 'San Francisco'),
+    Tour(lat: 34.0522, lon: -118.2437, description: 'Los Angeles'),
+    Tour(lat: 40.7128, lon: -74.0060, description: 'New York'),
   ],
 );
 

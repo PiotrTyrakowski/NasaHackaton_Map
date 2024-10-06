@@ -21,7 +21,7 @@ class Pin {
 
     if (assetPath.isNotEmpty) {
       await BitmapDescriptor.fromAssetImage(
-        const ImageConfiguration(size: Size(48, 48)),
+        const ImageConfiguration(size: Size(64, 64)),
         assetPath,
       ).then((BitmapDescriptor bitmap) {
         icon = bitmap;
