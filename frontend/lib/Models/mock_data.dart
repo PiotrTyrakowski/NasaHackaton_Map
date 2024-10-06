@@ -75,7 +75,7 @@ final MapState realMapState2050 = MapState(
               2. https://www.climate.gov/news-features/climate-qa/can-we-slow-or-even-reverse-global-warming\n
               3. https://news.un.org/en/story/2024/09/1154881''',
         location: LatLng(23.8142, 90.3903),
-        assetPath: 'assets/icons/skull_icon.png',
+        assetPath: 'assets/icons/heat_icon.png',
       ),
       polygonColor: Colors.red.withOpacity(0.5),
     ),
@@ -206,7 +206,7 @@ final MapState realMapState2100 = MapState(
               2. https://www.climate.gov/news-features/climate-qa/can-we-slow-or-even-reverse-global-warming\n
               3. https://news.un.org/en/story/2024/09/1154881''',
         location: LatLng(23.8142, 90.3903),
-        assetPath: 'assets/icons/skull_icon.png',
+        assetPath: 'assets/icons/heat_icon.png',
       ),
       polygonColor: Colors.red.withOpacity(0.5),
     ),
@@ -362,7 +362,7 @@ final MapState realMapState2150 = MapState(
               2. https://www.climate.gov/news-features/climate-qa/can-we-slow-or-even-reverse-global-warming\n
               3. https://news.un.org/en/story/2024/09/1154881''',
         location: LatLng(23.8142, 90.3903),
-        assetPath: 'assets/icons/skull_icon.png',
+        assetPath: 'assets/icons/heat_icon.png',
       ),
       polygonColor: Colors.red.withOpacity(0.5),
     ),
@@ -501,7 +501,7 @@ final MapState realMapState2200 = MapState(
               2. https://www.climate.gov/news-features/climate-qa/can-we-slow-or-even-reverse-global-warming\n
               3. https://news.un.org/en/story/2024/09/1154881''',
         location: LatLng(23.8142, 90.3903),
-        assetPath: 'assets/icons/skull_icon.png',
+        assetPath: 'assets/icons/heat_icon.png',
       ),
       polygonColor: Colors.red.withOpacity(0.5),
     ),
