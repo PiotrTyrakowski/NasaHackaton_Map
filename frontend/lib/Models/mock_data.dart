@@ -70,10 +70,7 @@ final MapState realMapState2050 = MapState(
       polygonPin: const Pin(
         title: 'Heatwave Havoc: Threat to Lives and Livelihoods',
         description:
-            '''Rising global temperatures are leading to extreme heatwaves in cities like Dhaka, 
-            threatening the health of millions. Increased heat exacerbates water scarcity and disrupts
-             agriculture, putting livelihoods at risk. Immediate action is needed to combat
-              the impacts of climate change and protect vulnerable communities. Helpful materials:\n
+            '''Heatwaves can have widespread, cascading effects. They can lead to droughts, wildfires, poor air quality, water and food shortages, and power outages, devastating communities worldwide. In 2023, wildfires in Canada burned 7.8 million hectares of land, releasing 3 billion tonnes of carbon dioxide, which worsened air pollution as far as Europe and China. This carbon release can contribute to future heatwaves, creating a dangerous feedback loop.F Helpful materials:\n
               1. https://science.nasa.gov/climate-change/\n
               2. https://www.climate.gov/news-features/climate-qa/can-we-slow-or-even-reverse-global-warming\n
               3. https://news.un.org/en/story/2024/09/1154881''',
@@ -94,12 +91,12 @@ final MapState realMapState2050 = MapState(
       polygonPin: const Pin(
         title: 'title',
         description:
-            '''desc. Helpful materials:\n
+            '''Heatwaves can have widespread, cascading effects. They can lead to droughts, wildfires, poor air quality, water and food shortages, and power outages, devastating communities worldwide. In 2023, wildfires in Canada burned 7.8 million hectares of land, releasing 3 billion tonnes of carbon dioxide, which worsened air pollution as far as Europe and China. This carbon release can contribute to future heatwaves, creating a dangerous feedback loop.. Helpful materials:\n
               1. https://science.nasa.gov/climate-change/\n
               2. https://www.climate.gov/news-features/climate-qa/can-we-slow-or-even-reverse-global-warming\n
               3. https://news.un.org/en/story/2024/09/1154881''',
         location: LatLng(36.324738, 27.959426),
-        assetPath: 'assets/icons/flod_icon.png',
+        assetPath: 'assets/icons/skull_icon.png',
       ),
       polygonColor: Colors.black.withOpacity(0.5),
     ),
@@ -127,7 +124,7 @@ Urgent action is required to mitigate the impacts of climate change and protect 
       lat: 36.324738,
       lon: 27.959426,
       description:
-          '''opis''',
+          '''opHeatwaves are becoming more frequent and severe due to human-induced climate change. A staggering 93% of 152 extreme-weather studies conducted over the past two decades concluded that climate change made extreme heat events more likely or more intense. For instance, the June 2024 heatwave across the US, Mexico, and Central America was made 35 times more likely and 1.4°C warmer due to climate change.is''',
     ),
   ],
 );
@@ -225,12 +222,12 @@ final MapState realMapState2100 = MapState(
       polygonPin: const Pin(
         title: 'title',
         description:
-            '''desc. Helpful materials:\n
+            '''Heatwaves can have widespread, cascading effects. They can lead to droughts, wildfires, poor air quality, water and food shortages, and power outages, devastating communities worldwide. In 2023, wildfires in Canada burned 7.8 million hectares of land, releasing 3 billion tonnes of carbon dioxide, which worsened air pollution as far as Europe and China. This carbon release can contribute to future heatwaves, creating a dangerous feedback loop.. Helpful materials:\n
               1. https://science.nasa.gov/climate-change/\n
               2. https://www.climate.gov/news-features/climate-qa/can-we-slow-or-even-reverse-global-warming\n
               3. https://news.un.org/en/story/2024/09/1154881''',
         location: LatLng(36.324738, 27.959426),
-        assetPath: 'assets/icons/flod_icon.png',
+        assetPath: 'assets/icons/skull_icon.png',
       ),
       polygonColor: Colors.black.withOpacity(0.5),
     ),
@@ -336,12 +333,12 @@ final MapState realMapState2150 = MapState(
       polygonPin: const Pin(
         title: 'title',
         description:
-            '''desc. Helpful materials:\n
+            '''Heatwaves can have widespread, cascading effects. They can lead to droughts, wildfires, poor air quality, water and food shortages, and power outages, devastating communities worldwide. In 2023, wildfires in Canada burned 7.8 million hectares of land, releasing 3 billion tonnes of carbon dioxide, which worsened air pollution as far as Europe and China. This carbon release can contribute to future heatwaves, creating a dangerous feedback loop.. Helpful materials:\n
               1. https://science.nasa.gov/climate-change/\n
               2. https://www.climate.gov/news-features/climate-qa/can-we-slow-or-even-reverse-global-warming\n
               3. https://news.un.org/en/story/2024/09/1154881''',
         location: LatLng(36.324738, 27.959426),
-        assetPath: 'assets/icons/flod_icon.png',
+        assetPath: 'assets/icons/skull_icon.png',
       ),
       polygonColor: Colors.black.withOpacity(0.5),
     ),
@@ -432,7 +429,7 @@ Urgent action is required to mitigate the impacts of climate change and protect 
       lat: 36.324738,
       lon: 27.959426,
       description:
-          '''opis''',
+          '''Heatwaves are becoming more frequent and severe due to human-induced climate change. A staggering 93% of 152 extreme-weather studies conducted over the past two decades concluded that climate change made extreme heat events more likely or more intense. For instance, the June 2024 heatwave across the US, Mexico, and Central America was made 35 times more likely and 1.4°C warmer due to climate change.''',
     ),
   ],
 );
