@@ -82,7 +82,15 @@ final MapState realMapState2100 = MapState(
   ],
   pins: [],
   tours: [
-    Tour(lat: 29.3013, lon: -94.7977),
+    Tour(
+      lat: 29.7319,
+      lon: -94.2994,
+      description:
+      "This tour highlights areas in Galveston severely impacted by a 0.5-meter "
+          "rise in sea levels. Residents in these zones have lost homes, businesses,"
+          " and property to encroaching waters. The devastation has displaced entire "
+          "communities and significantly altered the region's landscape.",
+    ),
   ],
 );
 
