@@ -21,6 +21,7 @@ class MapScreenState extends State<MapScreen> {
   double lon = (mapStates.isNotEmpty && mapStates[0].tours.isNotEmpty)
       ? mapStates[0].tours[0].lon
       : 22.0535;
+  double zoom = 8;
 
   int mapStateIndex = 0;
   int tourIndex = 0;
@@ -43,16 +44,17 @@ class MapScreenState extends State<MapScreen> {
     });
   }
 
-  void _incrementTourAndCords() {
+  void _incrementTourAndCords() async {
     setState(() {
       if (mapStates[mapStateIndex].tours.isEmpty) return;
       isTourActive = true;
       tourIndex = (tourIndex + 1) % mapStates[mapStateIndex].tours.length;
       lon = mapStates[mapStateIndex].tours[tourIndex].lon;
       lat = mapStates[mapStateIndex].tours[tourIndex].lat;
-      currentDescription = mapStates[mapStateIndex].tours[tourIndex].description;
+      currentDescription =
+          mapStates[mapStateIndex].tours[tourIndex].description;
     });
-    _updateCameraPosition();
+    await _updateCameraPosition();
   }
 
   void _stopTour() {
@@ -63,10 +65,10 @@ class MapScreenState extends State<MapScreen> {
     });
   }
 
-  void _updateCameraPosition() {
+  Future<void> _updateCameraPosition() async {
     if (_controller != null) {
-      _controller!
-          .animateCamera(CameraUpdate.newLatLngZoom(LatLng(lat, lon), 14));
+      await _controller!
+          .animateCamera(CameraUpdate.newLatLngZoom(LatLng(lat, lon), zoom));
     }
   }
 
@@ -78,16 +80,19 @@ class MapScreenState extends State<MapScreen> {
     LatLngBounds visibleRegion = await _controller!.getVisibleRegion();
     return LatLng(
       (visibleRegion.northeast.latitude + visibleRegion.southwest.latitude) / 2,
-      (visibleRegion.northeast.longitude + visibleRegion.southwest.longitude) / 2,
+      (visibleRegion.northeast.longitude + visibleRegion.southwest.longitude) /
+          2,
     );
   }
 
   void _onYearChanged(double year) async {
     LatLng currentCenter = await getCurrentMapCenter();
+    double zooom = await _controller!.getZoomLevel();
 
     setState(() {
       lat = currentCenter.latitude;
       lon = currentCenter.longitude;
+      zoom = zooom;
 
       if (year < 2050) {
         mapStateIndex = 0;
@@ -104,7 +109,7 @@ class MapScreenState extends State<MapScreen> {
     });
 
     if (_controller != null) {
-      _controller!.moveCamera(CameraUpdate.newLatLng(currentCenter));
+      await _controller!.moveCamera(CameraUpdate.newLatLngZoom(currentCenter, zooom));
     }
   }
 
@@ -141,7 +146,8 @@ class MapScreenState extends State<MapScreen> {
       body: Stack(
         children: [
           FutureBuilder<mapObjects>(
-            future: Future.value(mapStates[mapStateIndex].getMapObjects(context)),
+            future:
+                Future.value(mapStates[mapStateIndex].getMapObjects(context)),
             builder: (context, snapshot) {
               if (snapshot.connectionState == ConnectionState.waiting) {
                 return const Center(child: CircularProgressIndicator());
@@ -154,7 +160,7 @@ class MapScreenState extends State<MapScreen> {
                   },
                   initialCameraPosition: CameraPosition(
                     target: LatLng(lat, lon),
-                    zoom: 14,
+                    zoom: zoom,
                   ),
                   mapType: MapType.satellite,
                   markers: snapshot.data?.markers ?? {},
